@@ -1,151 +1,119 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MuskPolitics - أحدث الأخبار</title>
+  <title>MuskPolitics - Latest News</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f2027;  /* Gradient background */
-      background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #eee;
-      margin: 0; padding: 0;
-    }
-    header {
-      background: #1f4068;
-      padding: 1rem 2rem;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    main {
-      max-width: 900px;
-      margin: 1rem auto;
-      padding: 0 1rem;
-    }
-    .news-list {
-      list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 20px;
+      min-height: 100vh;
     }
-    .news-item {
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+    }
+    #news-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .article {
       background: rgba(255, 255, 255, 0.05);
-      margin-bottom: 1rem;
+      padding: 20px;
+      margin-bottom: 25px;
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 1rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
       transition: background 0.3s ease;
     }
-    .news-item:hover {
+    .article:hover {
       background: rgba(255, 255, 255, 0.12);
     }
-    .news-image {
-      width: 160px;
-      object-fit: cover;
-      border-radius: 0 8px 8px 0;
+    .article h3 {
+      margin: 0 0 10px;
+      font-size: 1.3em;
     }
-    .news-content {
-      flex: 1;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .news-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 0 0 0.4rem 0;
-      color: #66fcf1;
+    .article h3 a {
+      color: #61dafb;
       text-decoration: none;
     }
-    .news-description {
-      font-size: 0.95rem;
-      color: #c5c6c7;
-      flex-grow: 1;
+    .article h3 a:hover {
+      text-decoration: underline;
+    }
+    .article p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0 0 15px;
+    }
+    .article img {
+      max-width: 100%;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      background: #1f4068;
-      color: #aaa;
-      margin-top: 2rem;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #bbb;
     }
-    .error-msg {
-      background: #ff4444;
-      padding: 1rem;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: bold;
-      color: white;
-      margin: 1rem 0;
+    footer a {
+      color: #61dafb;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>MuskPolitics - أحدث الأخبار</header>
-  <main>
-    <ul class="news-list" id="newsList">
-      <!-- الأخبار غتتحط هنا -->
-    </ul>
-    <div class="error-msg" id="errorMsg" style="display:none;">
-      ⚠️ خطأ في تحميل الأخبار. المرجو المحاولة مرة أخرى لاحقاً.
-    </div>
-  </main>
+
+  <h1>MuskPolitics - Latest News</h1>
+
+  <div id="news-container">Loading news...</div>
+
   <footer>
-    تواصل معنا: <a href="mailto:orawn.nsam7@gmail.com" style="color:#66fcf1;">orawn.nsam7@gmail.com</a><br/>
-    © 2025 MuskPolitics | مطور الموقع: Richard
+    Contact: <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a><br/>
+    © 2025 MuskPolitics | Developed by Richard
   </footer>
 
   <script>
     async function fetchNews() {
-      const newsList = document.getElementById('newsList');
-      const errorMsg = document.getElementById('errorMsg');
+      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // مفتاحك هنا
+      const url = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${apiKey}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      return data;
+    }
 
-      // رابط Worker ديالك هنا
-      const workerUrl = 'https://ancient-water-1a85.orawn-nsam7.workers.dev/?url=https://newsapi.org/v2/top-headlines?language=en&country=us';
-
+    async function displayNews() {
+      const container = document.getElementById('news-container');
       try {
-        const response = await fetch(workerUrl);
-        const data = await response.json();
-
-        if (data.status !== 'ok' || !data.articles || data.articles.length === 0) {
-          throw new Error('No news');
-        }
-
-        errorMsg.style.display = 'none';
-        newsList.innerHTML = '';
-
-        data.articles.forEach(article => {
-          const li = document.createElement('li');
-          li.className = 'news-item';
-
-          li.innerHTML = `
-            <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="news-title">${article.title}</a>
-            ${article.urlToImage ? `<img src="${article.urlToImage}" alt="image" class="news-image" />` : ''}
-            <div class="news-content">
-              <p class="news-description">${article.description || ''}</p>
-              <small>${new Date(article.publishedAt).toLocaleString()}</small>
+        const newsData = await fetchNews();
+        if (newsData.status === 'ok' && newsData.articles.length > 0) {
+          container.innerHTML = newsData.articles.map(article => `
+            <div class="article">
+              <h3><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h3>
+              <p>${article.description || ''}</p>
+              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}"/>` : ''}
             </div>
-          `;
-
-          newsList.appendChild(li);
-        });
-
-      } catch (err) {
-        newsList.innerHTML = '';
-        errorMsg.style.display = 'block';
+          `).join('');
+        } else {
+          container.textContent = '⚠️ No news found or error loading news.';
+        }
+      } catch (error) {
+        container.textContent = '⚠️ Failed to load news. Please try again later.';
+        console.error('Error fetching news:', error);
       }
     }
 
-    fetchNews();
+    displayNews();
   </script>
+
 </body>
 </html>
