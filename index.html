@@ -77,15 +77,20 @@
             line-height: 1.5;
             color: #555;
             flex-grow: 1; /* Allows description to take available space */
-            margin-bottom: 15px; /* Space before price */
+            margin-bottom: 15px; /* Space before price/contact */
         }
         .price-section {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end; /* Align price to the right */
+            justify-content: space-between; /* Space between price and icon */
+            align-items: center; /* Align items vertically */
             margin-top: auto; /* Pushes price to the bottom */
             padding-top: 10px;
             border-top: 1px solid #eee;
+        }
+        .price-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align price details to the left */
         }
         .price-label {
             font-size: 0.8em;
@@ -96,7 +101,7 @@
         .price {
             font-weight: bold;
             color: #b12704; /* Amazon-like red for price */
-            font-size: 1.6em; /* Larger price font */
+            font-size: 1.2em; /* Smaller price font */
             white-space: nowrap; /* Prevent price from wrapping */
         }
         .price sup {
@@ -106,6 +111,16 @@
         .price sub {
             font-size: 0.6em;
             vertical-align: sub;
+        }
+        .contact-icon {
+            font-size: 1.8em; /* Size of the icon */
+            color: #007185; /* Icon color */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+            margin-left: 10px; /* Space from price */
+        }
+        .contact-icon:hover {
+            color: #0056b3; /* Darker on hover */
         }
 
         .footer {
@@ -131,8 +146,11 @@
                 <h3>Unique Chondrite Specimen</h3>
                 <p>This striking meteorite features a fascinating fusion crust, a testament to its fiery journey through Earth's atmosphere. An exceptional piece for any collection.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>950<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>950<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -143,8 +161,11 @@
                 <h3>Rare Iron Meteorite Slice</h3>
                 <p>A meticulously prepared slice showcasing breathtaking Widmanstätten patterns, revealing the intricate crystalline structure formed over eons in space. </p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>1,500<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>1,500<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -155,8 +176,11 @@
                 <h3>Pallasite with Olivine Crystals</h3>
                 <p>Experience the sheer beauty of this pallasite, where vibrant olivine crystals are suspended within a gleaming metallic matrix. A truly mesmerizing cosmic jewel.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>2,800<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>2,800<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -167,8 +191,11 @@
                 <h3>Detailed Martian Meteorite</h3>
                 <p>A rare and scientifically significant fragment from the Red Planet. This Martian meteorite offers invaluable insights into the geological past of Mars.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>3,500<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>3,500<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -179,8 +206,11 @@
                 <h3>Textured Stony Meteorite</h3>
                 <p>Observe the unique, naturally sculpted textures on this stony meteorite, evidence of its tumultuous descent through Earth's atmosphere. Perfect for educational displays.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>700<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>700<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -191,8 +221,11 @@
                 <h3>Glossy Fusion Crust Meteorite</h3>
                 <p>Admire the perfectly preserved, smooth, and glossy fusion crust on this meteorite. A textbook example of extraterrestrial material.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>1,100<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>1,100<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -203,8 +236,11 @@
                 <h3>Impact Melt Breccia</h3>
                 <p>This fascinating meteorite is an impact melt breccia, composed of diverse rock fragments fused together by the intense heat of an ancient cosmic collision.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>1,300<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>1,300<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Impact Melt Breccia" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -215,8 +251,11 @@
                 <h3>Achondrite with Unique Composition</h3>
                 <p>An achondrite, distinct for its lack of chondrules and resemblance to terrestrial igneous rocks. Provides critical insights into planetary differentiation processes.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>1,900<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>1,900<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Achondrite with Unique Composition" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
@@ -227,8 +266,11 @@
                 <h3>Primitive Carbonaceous Chondrite</h3>
                 <p>A highly prized and scientifically significant carbonaceous chondrite, known for containing organic compounds and water, hinting at the origins of life in our solar system.</p>
                 <div class="price-section">
-                    <span class="price-label">Price:</span>
-                    <span class="price"><sup>$</sup>4,000<sup>.00</sup> USD</span>
+                    <div class="price-info">
+                        <span class="price-label">Price:</span>
+                        <span class="price"><sup>$</sup>4,000<sup>.00</sup> USD</span>
+                    </div>
+                    <a href="mailto:your_email@example.com?subject=Inquiry about Primitive Carbonaceous Chondrite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
                 </div>
             </div>
         </div>
