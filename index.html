@@ -1,128 +1,104 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MuskPolitics - أخبار التكنولوجيا والسياسة</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuskPolitics - أحدث الأخبار</title>
   <style>
     body {
-      font-family: 'Tajawal', sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #000428, #004e92);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 30px;
       text-align: center;
-      font-size: 2.2rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-
-    #news-container {
-      max-width: 1000px;
-      margin: 30px auto;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    header {
+      padding: 2rem;
+      background-color: #111;
+      box-shadow: 0 0 10px #000;
     }
-
-    article {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 15px 0;
-    }
-
-    article:last-child {
-      border-bottom: none;
-    }
-
-    h2 {
-      font-size: 1.3rem;
+    h1 {
       margin: 0;
-      color: #ffdd57;
+      font-size: 2.5rem;
+      color: #00ffd5;
     }
-
-    a {
-      color: #90cdf4;
+    p.tagline {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+    .news-section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .article {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      text-align: right;
+    }
+    .article h3 {
+      margin: 0 0 0.5rem;
+      color: #00ffd5;
+    }
+    .article a {
+      color: #ffa500;
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .source {
-      font-size: 0.85rem;
-      color: #eee;
-    }
-
     footer {
-      text-align: center;
-      margin: 40px 0 20px;
+      padding: 2rem;
       font-size: 0.9rem;
-      color: #ddd;
-    }
-
-    .error {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #ff6b6b;
+      background-color: #111;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <header>MuskPolitics - أحدث الأخبار</header>
-  <section id="news-container">
-    <p class="error">جاري تحميل الأخبار...</p>
+  <header>
+    <h1>MuskPolitics</h1>
+    <p class="tagline">استكشف تقاطع التكنولوجيا، الابتكار، والسياسة</p>
+  </header>
+
+  <section class="news-section" id="news">
+    <p>جاري تحميل الأخبار...</p>
   </section>
+
   <footer>
-    تواصل معنا: <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a><br />
-    &copy; 2025 MuskPolitics | مطور الموقع: Richard
+    تواصل معنا: <a href="mailto:orawn.nsam7@gmail.com" style="color: #00ffd5;">orawn.nsam7@gmail.com</a><br>
+    © 2025 MuskPolitics | مطور الموقع: Richard
   </footer>
 
   <script>
-    async function fetchNews() {
-      const container = document.getElementById('news-container');
-      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // عوضها ب API Key ديالك
-      const url = `https://newsapi.org/v2/top-headlines?language=ar&category=technology&pageSize=10&apiKey=${apiKey}`;
+    async function loadNews() {
+      const res = await fetch("https://ancient-water-1a85.orawn-nsam7.workers.dev/?topic=السياسة");
+      const data = await res.json();
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
+      const newsContainer = document.getElementById("news");
+      newsContainer.innerHTML = "";
 
-        if (data.status !== "ok") {
-          container.innerHTML = `<p class="error">⚠️ خطأ في تحميل الأخبار.</p>`;
-          return;
-        }
-
-        if (data.articles.length === 0) {
-          container.innerHTML = `<p class="error">لا توجد أخبار حالياً.</p>`;
-          return;
-        }
-
-        container.innerHTML = '';
-        data.articles.forEach(article => {
-          const art = document.createElement('article');
-          art.innerHTML = `
-            <h2><a href="${article.url}" target="_blank">${article.title}</a></h2>
-            <p class="source">${article.source.name} - ${new Date(article.publishedAt).toLocaleDateString('ar-MA')}</p>
-            <p>${article.description || ''}</p>
-          `;
-          container.appendChild(art);
-        });
-      } catch (error) {
-        container.innerHTML = `<p class="error">⚠️ حدث خطأ أثناء تحميل الأخبار.</p>`;
-        console.error(error);
+      if (!data.articles || data.articles.length === 0) {
+        newsContainer.innerHTML = "<p>⚠️ لا توجد أخبار حالياً.</p>";
+        return;
       }
+
+      data.articles.forEach(article => {
+        const div = document.createElement("div");
+        div.className = "article";
+        div.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.description || "بدون وصف"}</p>
+          <a href="${article.url}" target="_blank">اقرأ المزيد</a>
+        `;
+        newsContainer.appendChild(div);
+      });
     }
 
-    fetchNews();
+    loadNews().catch(() => {
+      document.getElementById("news").innerHTML = "⚠️ خطأ في تحميل الأخبار.";
+    });
   </script>
 </body>
 </html>
