@@ -7,16 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* New Accent Color Variables */
+        /* New Accent Color Variables (Vibrant Neon Green) */
         :root {
-            --accent-color: #007FFF; /* Deep Electric Blue */
-            --accent-color-hover: #0066CC; /* Slightly darker blue for hover */
-            --dark-bg-primary: #0a0a0a; /* Very dark background for main elements */
-            --dark-bg-secondary: #1a1a1a; /* Slightly lighter for cards/sections */
-            --text-light: #e0e0e0; /* Main light text */
-            --text-medium: #cccccc; /* Secondary light text */
-            --text-dark: #999999; /* Subtle text */
-            --border-color: #333333; /* Dark border */
+            --accent-color: #39FF14; /* Vibrant Neon Green */
+            --accent-color-hover: #2ED110; /* Slightly darker green for hover */
+            --dark-bg-primary: #080808; /* Very dark background for main elements */
+            --dark-bg-secondary: #121212; /* Slightly lighter for cards/sections, gives subtle layering */
+            --text-light: #F0F0F0; /* Main bright text */
+            --text-medium: #C0C0C0; /* Secondary lighter text */
+            --text-dark: #888888; /* Subtle text */
+            --border-color: #282828; /* Dark border */
         }
 
         /* General Body and Base Styles */
@@ -24,11 +24,9 @@
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Wa3r Background: Complex Gradient for Depth */
-            background: linear-gradient(to bottom, #000000 0%, #0a0a0a 100%),
-                        radial-gradient(circle at center, #151515 0%, #000000 100%);
-            background-blend-mode: multiply; /* Blends the two gradients */
-            background-attachment: fixed; /* Ensures gradient covers viewport */
+            /* Wa3r Background: Enhanced Radial Gradient for Deeper Space Feel */
+            background: radial-gradient(circle at center, #101010 0%, #000000 100%);
+            background-attachment: fixed;
             color: var(--text-light);
             line-height: 1.6;
             font-size: 14px;
@@ -44,8 +42,8 @@
             background-color: var(--dark-bg-primary);
             color: #ffffff;
             border-bottom: 1px solid var(--border-color);
-            padding: 8px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.4); /* Subtle shadow */
+            padding: 7px 0; /* Minimized padding */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
         .top-header {
@@ -60,11 +58,11 @@
         .top-header-left, .top-header-right {
             display: flex;
             align-items: center;
-            gap: 16px; /* Slightly reduced gap */
+            gap: 15px; /* Minimized gap */
         }
 
         .top-header-link {
-            font-size: 0.8em;
+            font-size: 0.75em; /* Smallest font */
             color: var(--text-medium);
             transition: color 0.2s;
         }
@@ -75,10 +73,10 @@
         .top-header-button {
             background-color: var(--accent-color);
             color: #ffffff;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 4px 8px; /* Minimized padding */
+            border-radius: 3px; /* Smaller radius */
             font-weight: bold;
-            font-size: 0.85em;
+            font-size: 0.8em; /* Minimized font */
             transition: background-color 0.2s, transform 0.1s;
         }
         .top-header-button:hover {
@@ -89,10 +87,10 @@
         /* Main Header Section (Logo, Search, Nav) */
         .main-header-wrapper {
             background-color: var(--dark-bg-primary);
-            padding: 15px 0;
-            border-bottom: 3px solid; /* Use gradient for border */
-            border-image: linear-gradient(to right, var(--accent-color), #0a0a0a) 1; /* Gradient border */
-            box-shadow: 0 3px 8px rgba(0,0,0,0.5); /* Stronger shadow */
+            padding: 12px 0; /* Minimized padding */
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, var(--accent-color), transparent 70%) 1; /* Accent fades out */
+            box-shadow: 0 3px 6px rgba(0,0,0,0.6); /* Sharper shadow */
         }
 
         .main-header {
@@ -100,26 +98,26 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px; /* Minimized gap */
             padding: 0 20px;
         }
 
         .logo {
             font-family: 'Roboto', sans-serif;
-            font-size: 2.4em;
+            font-size: 2.2em; /* Reduced logo size */
             font-weight: 900;
             color: var(--accent-color);
             letter-spacing: -1.5px;
-            text-shadow: 0 0 8px rgba(0, 127, 255, 0.4); /* Subtle glow for logo */
+            text-shadow: 0 0 12px var(--accent-color); /* Stronger glow for logo */
         }
 
         .nav-dropdown {
             position: relative;
             cursor: pointer;
-            padding: 5px 0;
+            padding: 4px 0;
             color: #ffffff;
             font-weight: 500;
-            font-size: 0.95em;
+            font-size: 0.9em; /* Reduced font size */
             transition: color 0.2s;
         }
         .nav-dropdown:hover {
@@ -127,63 +125,63 @@
         }
         .nav-dropdown::after {
             content: '▼';
-            font-size: 0.6em;
-            margin-left: 5px;
+            font-size: 0.5em; /* Minimized indicator */
+            margin-left: 4px;
             vertical-align: middle;
         }
 
         .search-bar {
             display: flex;
             flex-grow: 1;
-            border-radius: 20px;
+            border-radius: 18px; /* Minimized radius */
             overflow: hidden;
-            background-color: #222222; /* Slightly lighter for search */
-            border: 1px solid #444;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); /* Inner shadow for depth */
+            background-color: #181818; /* Darker for search */
+            border: 1px solid #333;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4); /* Sharper inner shadow */
         }
 
         .search-dropdown {
-            background-color: #2e2e2e;
+            background-color: #222222;
             color: #ffffff;
-            padding: 8px 12px;
-            border-right: 1px solid #444;
+            padding: 7px 10px; /* Minimized padding */
+            border-right: 1px solid #333;
             cursor: pointer;
             font-weight: 500;
-            font-size: 0.9em;
+            font-size: 0.85em; /* Minimized font */
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             transition: background-color 0.2s;
         }
         .search-dropdown:hover {
-            background-color: #3e3e3e;
+            background-color: #2a2a2a;
         }
         .search-dropdown::after {
             content: '▼';
-            font-size: 0.6em;
-            margin-left: 5px;
+            font-size: 0.5em; /* Minimized indicator */
+            margin-left: 4px;
         }
 
         .search-input {
             flex-grow: 1;
-            padding: 8px 12px;
+            padding: 7px 10px; /* Minimized padding */
             border: none;
             outline: none;
-            background-color: #222222;
+            background-color: #181818;
             color: #ffffff;
-            font-size: 0.95em;
+            font-size: 0.9em; /* Minimized font */
         }
         .search-input::placeholder {
-            color: #aaaaaa;
+            color: var(--text-dark);
         }
 
         .search-button {
             background-color: var(--accent-color);
             color: #ffffff;
-            padding: 8px 18px;
+            padding: 7px 15px; /* Minimized padding */
             border: none;
             cursor: pointer;
-            font-size: 0.95em;
+            font-size: 0.9em; /* Minimized font */
             font-weight: bold;
             transition: background-color 0.2s, transform 0.1s;
         }
@@ -197,36 +195,36 @@
             flex-direction: column;
             align-items: center;
             color: #ffffff;
-            font-size: 0.75em;
-            gap: 3px;
+            font-size: 0.7em; /* Minimized font */
+            gap: 2px;
             transition: color 0.2s;
         }
         .icon-link:hover {
             color: var(--accent-color);
         }
         .icon-link .material-icons {
-            font-size: 20px;
+            font-size: 18px; /* Minimized icons */
         }
 
         /* Secondary Navigation Bar */
         .secondary-nav-wrapper {
             background-color: var(--dark-bg-secondary);
-            padding: 8px 0;
+            padding: 7px 0; /* Minimized padding */
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle shadow */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         .secondary-nav {
             max-width: 1300px;
             margin: 0 auto;
             display: flex;
-            gap: 20px;
+            gap: 18px; /* Minimized gap */
             padding: 0 20px;
         }
         .secondary-nav-link {
             color: var(--text-medium);
-            font-size: 0.85em;
+            font-size: 0.8em; /* Minimized font */
             font-weight: 500;
-            padding: 5px 0;
+            padding: 4px 0;
             transition: color 0.2s;
         }
         .secondary-nav-link:hover {
@@ -234,73 +232,97 @@
         }
         .secondary-nav-dropdown::after {
             content: '▼';
-            font-size: 0.6em;
-            margin-left: 5px;
+            font-size: 0.5em;
+            margin-left: 4px;
             vertical-align: middle;
         }
 
-        /* Why Choose Us Section */
+        /* Why Choose Us Section (Minimized & Ultra HD) */
         .why-choose-us {
-            max-width: 1100px; /* Reduced max-width for more compact layout */
-            margin: 40px auto; /* More vertical margin */
-            padding: 25px 20px; /* Adjusted padding */
+            max-width: 900px; /* **Significantly reduced max-width** */
+            margin: 30px auto; /* Minimized vertical margin */
+            padding: 20px 15px; /* Minimized padding */
             background-color: var(--dark-bg-secondary);
-            border-radius: 10px; /* Slightly larger border-radius */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.6); /* More prominent shadow */
+            border-radius: 8px; /* Consistent radius */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7); /* Sharper, deeper shadow */
             text-align: center;
-            border: 1px solid #2e2e2e; /* Subtle border */
+            border: 1px solid #282828;
+            position: relative; /* For a subtle border glow */
+            overflow: hidden; /* For pseudo-element glow */
         }
+        /* Subtle border glow effect */
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            padding: 2px; /* Thickness of the glow border */
+            background: linear-gradient(45deg, var(--accent-color) 0%, transparent 50%, var(--accent-color) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            animation: rotateGlow 8s linear infinite; /* Animation for subtle movement */
+            opacity: 0.3; /* Less intense glow */
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .why-choose-us h2 {
-            font-size: 2em;
+            font-size: 1.8em; /* Reduced title size */
             color: var(--accent-color);
-            margin-bottom: 25px; /* Increased margin for title */
+            margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 0 0 5px rgba(0, 127, 255, 0.3); /* Subtle glow for title */
+            text-shadow: 0 0 8px var(--accent-color); /* Sharper glow for title */
         }
         .why-features {
             display: flex;
-            justify-content: center; /* Center items for tighter look */
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 30px; /* Increased gap for separation */
+            gap: 20px; /* Reduced gap */
         }
         .feature-item {
-            flex-basis: 28%; /* Adjusted for 3 items per row, with more space */
-            min-width: 280px; /* Ensure minimum width */
+            flex-basis: 30%; /* Adjusted for more balanced spacing */
+            min-width: 250px;
             background-color: #1a1a1a; /* Darker background for feature items */
-            padding: 25px; /* Increased padding for content */
-            border-radius: 8px; /* Consistent border-radius */
-            box-shadow: 0 3px 10px rgba(0,0,0,0.5); /* Stronger shadow */
+            padding: 20px; /* Reduced padding */
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.7); /* Sharper, deeper shadow */
             text-align: center;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            border: 1px solid #2e2e2e; /* Subtle border */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
+            border: 1px solid #282828;
         }
         .feature-item:hover {
-            transform: translateY(-8px); /* More lift on hover */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7); /* Even stronger shadow on hover */
+            transform: translateY(-5px); /* Less lift on hover */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.8); /* Stronger shadow on hover */
+            border-color: var(--accent-color); /* Border glows on hover */
         }
         .feature-item .material-icons {
-            font-size: 48px; /* Larger icons */
+            font-size: 40px; /* Slightly reduced icon size */
             color: var(--accent-color);
-            margin-bottom: 15px; /* Increased margin */
-            text-shadow: 0 0 10px var(--accent-color); /* Stronger glow for icons */
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px var(--accent-color); /* Intense glow for icons */
         }
         .feature-item h3 {
-            font-size: 1.3em;
+            font-size: 1.2em; /* Reduced font size */
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 500;
         }
         .feature-item p {
-            font-size: 0.95em;
+            font-size: 0.9em; /* Reduced font size */
             color: var(--text-medium);
         }
 
         /* Main Content Area */
         .content-area {
             max-width: 1300px;
-            margin: 40px auto; /* Increased margin */
+            margin: 40px auto;
             display: flex;
-            gap: 30px; /* Increased gap */
+            gap: 25px; /* Reduced gap */
             padding: 0 20px;
         }
 
@@ -310,15 +332,15 @@
             flex-shrink: 0;
             background-color: var(--dark-bg-secondary);
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             color: var(--text-light);
-            border: 1px solid #2e2e2e;
+            border: 1px solid #282828;
         }
 
         .sidebar-section {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
         }
         .sidebar-section:last-child {
@@ -328,9 +350,9 @@
         }
 
         .sidebar-title {
-            font-size: 1.1em;
+            font-size: 1.05em;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: #ffffff;
         }
 
@@ -340,7 +362,7 @@
             margin: 0;
         }
         .sidebar-list li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .sidebar-list a {
             color: var(--text-medium);
@@ -352,19 +374,19 @@
 
         .checkbox-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
             cursor: pointer;
             color: var(--text-medium);
         }
         .checkbox-group input[type="checkbox"] {
-            margin-right: 8px;
+            margin-right: 7px;
             accent-color: var(--accent-color);
         }
 
         .sidebar-input {
             width: calc(100% - 20px);
-            padding: 8px 10px;
-            border: 1px solid #555;
+            padding: 7px 9px;
+            border: 1px solid #444;
             background-color: #333;
             color: #ffffff;
             border-radius: 4px;
@@ -377,17 +399,17 @@
         .sidebar-button {
             background-color: var(--accent-color);
             color: #ffffff;
-            padding: 8px 15px;
+            padding: 7px 14px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 12px;
             transition: background-color 0.2s, transform 0.1s;
         }
         .sidebar-button:hover {
-                background-color: var(--accent-color-hover);
-                transform: translateY(-1px);
+            background-color: var(--accent-color-hover);
+            transform: translateY(-1px);
         }
 
         /* Main Product Grid Area */
@@ -417,29 +439,30 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px; /* Adjusted gap */
+            gap: 25px;
         }
 
         /* Individual Product Card */
         .product-card {
             background-color: var(--dark-bg-secondary);
-            border: 1px solid #2e2e2e;
+            border: 1px solid #282828;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Stronger shadow */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
             display: flex;
             flex-direction: column;
             position: relative;
         }
         .product-card:hover {
-            transform: translateY(-8px); /* More lift on hover */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6); /* Even stronger shadow on hover */
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border-color: var(--accent-color); /* Border glows on hover */
         }
 
         .product-card img {
             width: 100%;
-            height: 180px; /* Consistent image height */
+            height: 180px;
             object-fit: cover;
             display: block;
             border-bottom: 1px solid var(--border-color);
@@ -552,9 +575,9 @@
             padding: 2rem 0;
             margin-top: 50px;
             font-size: 0.9em;
-            border-top: 3px solid; /* Use gradient for border */
-            border-image: linear-gradient(to left, var(--accent-color), #0a0a0a) 1; /* Gradient border */
-            box-shadow: 0 -3px 8px rgba(0,0,0,0.5); /* Stronger shadow */
+            border-top: 3px solid;
+            border-image: linear-gradient(to left, var(--accent-color), transparent 70%) 1; /* Gradient border */
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.6); /* Sharper shadow */
         }
         .footer-links {
             list-style: none;
