@@ -3,285 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MrMustapha's Workshop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Welcome to MrMustapha's Workshop - Alibaba Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        /* General Body and Base Styles */
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #1a1a1a; /* Dominant black background */
-            color: #f0f0f0; /* Light text for contrast */
+            color: #e0e0e0; /* Light text for contrast */
             line-height: 1.6;
+            font-size: 14px; /* Standard font size */
         }
-        .header {
-            background-color: #000000; /* Pure black header */
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Header Section */
+        .top-header-wrapper {
+            background-color: #000000; /* Pure black */
             color: #ffffff;
-            padding: 2rem 0; /* More padding for a bolder header */
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Darker shadow */
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+
+        .top-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .top-header-left, .top-header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-header-link {
+            font-size: 0.85em;
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+        .top-header-link:hover {
+            color: #ff6600; /* Alibaba orange on hover */
+        }
+
+        .top-header-button {
+            background-color: #ff6600; /* Alibaba orange */
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+        .top-header-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Main Header Section (Logo, Search, Nav) */
+        .main-header-wrapper {
+            background-color: #000000; /* Pure black */
+            padding: 20px 0;
             border-bottom: 3px solid #ff6600; /* Alibaba orange accent */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
-        .header h1 {
+
+        .main-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 900;
+            color: #ff6600; /* Alibaba orange */
+            letter-spacing: -1px;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            cursor: pointer;
+            padding: 5px 0;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .nav-dropdown::after {
+            content: '▼';
+            font-size: 0.6em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .search-bar {
+            display: flex;
+            flex-grow: 1; /* Takes up available space */
+            border-radius: 25px;
+            overflow: hidden;
+            background-color: #333333; /* Darker gray for search bar */
+            border: 1px solid #555;
+        }
+
+        .search-dropdown {
+            background-color: #444444;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-right: 1px solid #555;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .search-dropdown::after {
+            content: '▼';
+            font-size: 0.6em;
+            margin-left: 5px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 1em;
+        }
+        .search-input::placeholder {
+            color: #aaaaaa;
+        }
+
+        .search-button {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .search-button:hover {
+            background-color: #e65c00;
+        }
+
+        .icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+            font-size: 0.8em;
+            gap: 3px;
+            transition: color 0.2s;
+        }
+        .icon-link:hover {
+            color: #ff6600;
+        }
+        .icon-link .material-icons {
+            font-size: 24px;
+        }
+
+        /* Secondary Navigation Bar */
+        .secondary-nav-wrapper {
+            background-color: #2c2c2c; /* Dark gray */
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+        .secondary-nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            gap: 25px;
+            padding: 0 20px;
+        }
+        .secondary-nav-link {
+            color: #cccccc;
+            font-size: 0.9em;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.2s;
+        }
+        .secondary-nav-link:hover {
+            color: #ff6600;
+        }
+        .secondary-nav-dropdown::after {
+            content: '▼';
+            font-size: 0.6em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            max-width: 1300px;
+            margin: 30px auto;
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        /* Left Sidebar (Filters) */
+        .sidebar {
+            width: 250px; /* Fixed width for sidebar */
+            flex-shrink: 0; /* Prevent shrinking */
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            color: #e0e0e0;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        .sidebar-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
             margin: 0;
-            font-size: 3em; /* Larger title */
-            letter-spacing: 2px;
-            font-weight: 900; /* Bolder font */
-            color: #ff6600; /* Alibaba orange for the title */
         }
-        .header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-            opacity: 0.8;
+        .sidebar-list li {
+            margin-bottom: 10px;
         }
-        .container {
-            width: 90%;
-            max-width: 1280px; /* Wider container */
-            margin: 40px auto; /* More margin */
+        .sidebar-list a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+        .sidebar-list a:hover {
+            color: #ff6600;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            color: #cccccc;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #ff6600; /* Orange checkbox */
+        }
+
+        .sidebar-input {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .sidebar-input::placeholder {
+            color: #888;
+        }
+
+        .sidebar-button {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .sidebar-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Main Product Grid Area */
+        .product-grid-area {
+            flex-grow: 1;
+        }
+
+        .product-grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        .product-grid-header h2 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .product-count {
+            color: #aaaaaa;
+            font-size: 0.9em;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Slightly wider cards */
-            gap: 30px; /* Increased gap */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Tighter grid for more products */
+            gap: 20px; /* Smaller gap */
         }
-        .meteorite-card {
-            background-color: #2c2c2c; /* Dark gray for card background */
-            border: 1px solid #444; /* Darker border */
+
+        /* Individual Product Card */
+        .product-card {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4); /* Stronger shadow */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
+            position: relative; /* For the 'Ad' label */
         }
-        .meteorite-card:hover {
-            transform: translateY(-10px); /* More pronounced lift on hover */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.6); /* Even stronger shadow on hover */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
         }
-        .meteorite-card img {
+
+        .product-card img {
             width: 100%;
-            height: 240px; /* Slightly taller images */
+            height: 180px; /* Adjusted height for more items */
             object-fit: cover;
             display: block;
             border-bottom: 1px solid #444;
         }
-        .card-content {
-            padding: 20px; /* More padding */
+
+        .product-card-content {
+            padding: 15px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-        }
-        .card-content h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            color: #ffffff; /* White title for high contrast */
-            font-size: 1.5em; /* Larger title */
-            font-weight: 700;
-        }
-        .card-content p {
-            font-size: 1em; /* Slightly larger description font */
-            line-height: 1.6;
-            color: #cccccc; /* Lighter gray for descriptions */
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-        .price-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid #444; /* Darker separator */
-        }
-        .price-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .price-label {
-            font-size: 0.9em; /* Slightly larger label */
-            color: #999999; /* Medium gray */
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .price {
-            font-weight: bold;
-            color: #ff6600; /* Alibaba orange for the price */
-            font-size: 1.3em; /* Adjusted price size for clarity in dark theme */
-            white-space: nowrap;
-        }
-        .price sup {
-            font-size: 0.7em;
-            vertical-align: super;
-        }
-        .price sub {
-            font-size: 0.7em;
-            vertical-align: sub;
-        }
-        .contact-icon {
-            font-size: 2em; /* Larger icon */
-            color: #ff6600; /* Alibaba orange for the icon */
-            text-decoration: none;
-            transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-            margin-left: 15px;
-        }
-        .contact-icon:hover {
-            color: #ff9933; /* Lighter orange on hover */
-            transform: scale(1.1);
         }
 
+        .product-card-title {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 8px;
+            height: 2.8em; /* Limit title to 2 lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #ff6600; /* Orange price */
+            margin-bottom: 5px;
+        }
+        .product-price sup {
+            font-size: 0.6em;
+            vertical-align: super;
+        }
+        .product-price sub {
+            font-size: 0.6em;
+            vertical-align: sub;
+        }
+
+        .min-order {
+            font-size: 0.85em;
+            color: #aaaaaa;
+            margin-bottom: 10px;
+        }
+
+        .supplier-info {
+            font-size: 0.8em;
+            color: #999999;
+            margin-bottom: 10px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .badge {
+            background-color: #444;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .badge.verified {
+            background-color: #007185; /* A blue for verified */
+        }
+        .badge.trade-assurance {
+            background-color: #007185; /* A blue for trade assurance */
+        }
+        .badge .material-icons {
+            font-size: 14px;
+        }
+
+        .contact-supplier-button {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: auto; /* Pushes button to bottom */
+            transition: background-color 0.2s;
+        }
+        .contact-supplier-button:hover {
+            background-color: #e65c00;
+        }
+
+        .ad-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: #ffffff;
+            font-size: 0.7em;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Footer */
         .footer {
-            background-color: #000000; /* Pure black footer */
+            background-color: #000000;
             color: #ffffff;
             text-align: center;
             padding: 2rem 0;
             margin-top: 50px;
-            font-size: 1em;
-            border-top: 3px solid #ff6600; /* Alibaba orange accent */
+            font-size: 0.9em;
+            border-top: 3px solid #ff6600;
+        }
+
+        /* Material Icons for visual cues */
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px; /* Default size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
         }
     </style>
+    <!-- Google Material Icons CDN for simple icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>Welcome to MrMustapha's Workshop</h1>
-        <p>Discover unique treasures from beyond our world.</p>
-    </div>
-
-    <div class="container">
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/kGRhNqe.jpeg" alt="Unique Chondrite Specimen">
-            <div class="card-content">
-                <h3>Unique Chondrite Specimen</h3>
-                <p>This striking meteorite features a fascinating fusion crust, a testament to its fiery journey through Earth's atmosphere. An exceptional piece for any collection.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>950<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
+    <!-- Top Header Bar -->
+    <div class="top-header-wrapper">
+        <div class="top-header">
+            <div class="top-header-left">
+                <a href="#" class="top-header-link">Buyer Central</a>
+                <a href="#" class="top-header-link">Help Center</a>
+                <a href="#" class="top-header-link">App & extension</a>
             </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/d5MwH4k.jpeg" alt="Rare Iron Meteorite Slice">
-            <div class="card-content">
-                <h3>Rare Iron Meteorite Slice</h3>
-                <p>A meticulously prepared slice showcasing breathtaking Widmanstätten patterns, revealing the intricate crystalline structure formed over eons in space. </p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>1,500<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/EUSWpWH.jpeg" alt="Pallasite with Olivine Crystals">
-            <div class="card-content">
-                <h3>Pallasite with Olivine Crystals</h3>
-                <p>Experience the sheer beauty of this pallasite, where vibrant olivine crystals are suspended within a gleaming metallic matrix. A truly mesmerizing cosmic jewel.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>2,800<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/0qww4V9.jpeg" alt="Detailed Martian Meteorite">
-            <div class="card-content">
-                <h3>Detailed Martian Meteorite</h3>
-                <p>A rare and scientifically significant fragment from the Red Planet. This Martian meteorite offers invaluable insights into the geological past of Mars.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>3,500<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/bwJsZgc.jpeg" alt="Textured Stony Meteorite">
-            <div class="card-content">
-                <h3>Textured Stony Meteorite</h3>
-                <p>Observe the unique, naturally sculpted textures on this stony meteorite, evidence of its tumultuous descent through Earth's atmosphere. Perfect for educational displays.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>700<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-                </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/MjVkzRZ.jpeg" alt="Glossy Fusion Crust Meteorite">
-            <div class="card-content">
-                <h3>Glossy Fusion Crust Meteorite</h3>
-                <p>Admire the perfectly preserved, smooth, and glossy fusion crust on this meteorite. A textbook example of extraterrestrial material.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>1,100<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust Meteorite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/hposzie.jpeg" alt="Impact Melt Breccia">
-            <div class="card-content">
-                <h3>Impact Melt Breccia</h3>
-                <p>This fascinating meteorite is an impact melt breccia, composed of diverse rock fragments fused together by the intense heat of an ancient cosmic collision.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>1,300<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Impact Melt Breccia" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/HZJzyKI.jpeg" alt="Achondrite with Unique Composition">
-            <div class="card-content">
-                <h3>Achondrite with Unique Composition</h3>
-                <p>An achondrite, distinct for its lack of chondrules and resemblance to terrestrial igneous rocks. Provides critical insights into planetary differentiation processes.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>1,900<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Achondrite with Unique Composition" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="meteorite-card">
-            <img src="https://i.imgur.com/dFNdOIA.jpeg" alt="Primitive Carbonaceous Chondrite">
-            <div class="card-content">
-                <h3>Primitive Carbonaceous Chondrite</h3>
-                <p>A highly prized and scientifically significant carbonaceous chondrite, known for containing organic compounds and water, hinting at the origins of life in our solar system.</p>
-                <div class="price-section">
-                    <div class="price-info">
-                        <span class="price-label">Price:</span>
-                        <span class="price"><sup>$</sup>4,000<sup>.00</sup> USD</span>
-                    </div>
-                    <a href="mailto:your_email@example.com?subject=Inquiry about Primitive Carbonaceous Chondrite" class="contact-icon" title="Contact Seller"><span style="font-family: 'Segoe UI Symbol', 'Arial Unicode MS';">&#9993;</span></a>
-                </div>
+            <div class="top-header-right">
+                <a href="#" class="top-header-link">Deliver to: MA <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
+                <a href="#" class="top-header-link">English - USD <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
+                <a href="#" class="top-header-link"><span class="material-icons" style="font-size: 1.2em;">shopping_cart</span></a>
+                <a href="#" class="top-header-link">Sign In</a>
+                <a href="#" class="top-header-button">Create Account</a>
+                <a href="#" class="top-header-link">Become a supplier</a>
             </div>
         </div>
     </div>
 
+    <!-- Main Header (Logo, Search, Main Nav) -->
+    <div class="main-header-wrapper">
+        <div class="main-header">
+            <div class="logo">Alibaba.com</div>
+            <div class="nav-dropdown">Products</div>
+            <div class="search-bar">
+                <div class="search-dropdown">All <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></div>
+                <input type="text" class="search-input" placeholder="What are you looking for?">
+                <button class="search-button">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secondary Navigation Bar -->
+    <div class="secondary-nav-wrapper">
+        <div class="secondary-nav">
+            <a href="#" class="secondary-nav-link secondary-nav-dropdown">All categories</a>
+            <a href="#" class="secondary-nav-link">Featured selections</a>
+            <a href="#" class="secondary-nav-link">Order protections</a>
+            <!-- Alibaba banner text -->
+            <span style="color: #ff6600; font-size: 0.9em; margin-left: auto;">Alibaba protects you from payment to delivery with Trade Assurance.</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area: Sidebar + Product Grid -->
+    <div class="content-area">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Categories</div>
+                <ul class="sidebar-list">
+                    <li><a href="#">Power Banks & Power Station</a></li>
+                    <li><a href="#">Chargers & Adapters</a></li>
+                    <li><a href="#">Smart Watches</a></li>
+                    <li><a href="#">Gift Sets</a></li>
+                    <li><a href="#">Other Categories...</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Supplier type</div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" checked> Trade Assurance</label>
+                    <label><input type="checkbox" checked> Verified Supplier</label>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Min. order</div>
+                <input type="text" class="sidebar-input" placeholder="Min. order">
+                <button class="sidebar-button">OK</button>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Supplier country/region</div>
+                <input type="text" class="sidebar-input" placeholder="Search">
+                <div class="checkbox-group" style="margin-top: 10px;">
+                    <label><input type="checkbox"> Austria</label>
+                    <label><input type="checkbox"> Bangladesh</label>
+                    <label><input type="checkbox"> Belgium</label>
+                    <label><input type="checkbox"> Cambodia</label>
+                    <label><input type="checkbox"> Canada</label>
+                    <label><input type="checkbox"> China</label>
+                    <label><input type="checkbox"> Denmark</label>
+                    <label><input type="checkbox"> France</label>
+                    <label><input type="checkbox"> Germany</label>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Management certifications</div>
+                <ul class="sidebar-list">
+                    <li><a href="#">CE</a></li>
+                    <li><a href="#">RoHS</a></li>
+                    <li><a href="#">FCC</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Product Grid Area -->
+        <div class="product-grid-area">
+            <div class="product-grid-header">
+                <h2>Online Product Selling</h2>
+                <span class="product-count">(53125 products available)</span>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/kGRhNqe.jpeg" alt="Unique Chondrite Specimen">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Unique Chondrite Specimen with Fusion Crust</div>
+                        <div class="product-price"><sup>$</sup>950<sup>.00</sup> - <sup>$</sup>1,200<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Shenzhen Beta Cosmet...</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/d5MwH4k.jpeg" alt="Rare Iron Meteorite Slice">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Rare Iron Meteorite Slice with Widmanstätten Patterns</div>
+                        <div class="product-price"><sup>$</sup>1,500<sup>.00</sup> - <sup>$</sup>2,000<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">CN Dongguan Tianzi...</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/EUSWpWH.jpeg" alt="Pallasite with Olivine Crystals">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Stunning Pallasite Meteorite with Gem-Quality Olivine</div>
+                        <div class="product-price"><sup>$</sup>2,800<sup>.00</sup> - <sup>$</sup>3,500<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">New Blackhead Nose Washing...</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/0qww4V9.jpeg" alt="Detailed Martian Meteorite">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Authentic Martian Meteorite Fragment - Rare Find</div>
+                        <div class="product-price"><sup>$</sup>3,500<sup>.00</sup> - <sup>$</sup>4,200<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Japanese Hot Girl Electric...</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/bwJsZgc.jpeg" alt="Textured Stony Meteorite">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Naturally Textured Stony Meteorite - Collectible</div>
+                        <div class="product-price"><sup>$</sup>700<sup>.00</sup> - <sup>$</sup>900<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">DALTON Smart Lock</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/MjVkzRZ.jpeg" alt="Glossy Fusion Crust Meteorite">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Meteorite with Perfectly Preserved Glossy Fusion Crust</div>
+                        <div class="product-price"><sup>$</sup>1,100<sup>.00</sup> - <sup>$</sup>1,500<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Comes with 4 wires more...</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust Meteorite" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/hposzie.jpeg" alt="Impact Melt Breccia">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Impact Melt Breccia - A Fragment of Cosmic Collision</div>
+                        <div class="product-price"><sup>$</sup>1,300<sup>.00</sup> - <sup>$</sup>1,800<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Supplier Name Here</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Impact Melt Breccia" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/HZJzyKI.jpeg" alt="Achondrite with Unique Composition">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Achondrite Meteorite - Unique Planetary Fragment</div>
+                        <div class="product-price"><sup>$</sup>1,900<sup>.00</sup> - <sup>$</sup>2,500<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Another Supplier</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Achondrite with Unique Composition" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 9 -->
+                <div class="product-card">
+                    <img src="https://i.imgur.com/dFNdOIA.jpeg" alt="Primitive Carbonaceous Chondrite">
+                    <div class="ad-label">Ad</div>
+                    <div class="product-card-content">
+                        <div class="product-card-title">Primitive Carbonaceous Chondrite - Scientific Specimen</div>
+                        <div class="product-price"><sup>$</sup>4,000<sup>.00</sup> - <sup>$</sup>5,000<sup>.00</sup></div>
+                        <div class="min-order">Min. order: 1 piece</div>
+                        <div class="supplier-info">Global Meteorites Inc.</div>
+                        <div class="badges">
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                        </div>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Primitive Carbonaceous Chondrite" class="contact-supplier-button">Contact supplier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
         <p>&copy; 2025 MrMustapha's Workshop. All rights reserved.</p>
     </div>
