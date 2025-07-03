@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MrMustapha's Workshop - Alibaba Style</title>
+    <title>Welcome to MrMustapha's Workshop - Your Premier Meteorite Source</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         /* General Body and Base Styles */
         body {
@@ -85,10 +86,12 @@
         }
 
         .logo {
-            font-size: 2.5em;
-            font-weight: 900;
+            font-family: 'Roboto', sans-serif; /* Keep Roboto for logo */
+            font-size: 2.8em; /* Slightly larger for "MrMust" */
+            font-weight: 900; /* Extra bold */
             color: #ff6600; /* Alibaba orange */
-            letter-spacing: -1px;
+            letter-spacing: -2px; /* Tighter letter spacing */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle shadow */
         }
 
         .nav-dropdown {
@@ -202,6 +205,56 @@
             font-size: 0.6em;
             margin-left: 5px;
             vertical-align: middle;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .why-choose-us h2 {
+            font-size: 2.2em;
+            color: #ff6600;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        .why-features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature-item {
+            flex-basis: 30%; /* Adjust for 3 items per row */
+            min-width: 250px;
+            background-color: #3a3a3a;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item .material-icons {
+            font-size: 40px;
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+        .feature-item h3 {
+            font-size: 1.3em;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 0.95em;
+            color: #cccccc;
         }
 
         /* Main Content Area */
@@ -459,8 +512,24 @@
             font-size: 0.9em;
             border-top: 3px solid #ff6600;
         }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #ff6600;
+        }
 
-        /* Material Icons for visual cues */
+        /* Material Icons */
         .material-icons {
             font-family: 'Material Icons';
             font-weight: normal;
@@ -479,270 +548,278 @@
             font-feature-settings: 'liga';
         }
     </style>
-    <!-- Google Material Icons CDN for simple icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Header Bar -->
     <div class="top-header-wrapper">
         <div class="top-header">
             <div class="top-header-left">
-                <a href="#" class="top-header-link">Buyer Central</a>
-                <a href="#" class="top-header-link">Help Center</a>
-                <a href="#" class="top-header-link">App & extension</a>
+                <a href="#guides" class="top-header-link">Collector's Guide</a>
+                <a href="#faq" class="top-header-link">FAQ & Support</a>
+                <a href="#expertise" class="top-header-link">Our Expertise</a>
             </div>
             <div class="top-header-right">
-                <a href="#" class="top-header-link">Deliver to: MA <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
+                <a href="#shipping" class="top-header-link">Shipping Info <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
                 <a href="#" class="top-header-link">English - USD <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
-                <a href="#" class="top-header-link"><span class="material-icons" style="font-size: 1.2em;">shopping_cart</span></a>
-                <a href="#" class="top-header-link">Sign In</a>
-                <a href="#" class="top-header-button">Create Account</a>
-                <a href="#" class="top-header-link">Become a supplier</a>
+                <a href="#cart" class="top-header-link"><span class="material-icons" style="font-size: 1.2em;">shopping_cart</span></a>
+                <a href="#signin" class="top-header-link">Sign In</a>
+                <a href="#register" class="top-header-button">Create Account</a>
+                <a href="#consign" class="top-header-link">Consign Your Meteorite</a>
             </div>
         </div>
     </div>
 
-    <!-- Main Header (Logo, Search, Main Nav) -->
     <div class="main-header-wrapper">
         <div class="main-header">
-            <div class="logo">Alibaba.com</div>
-            <div class="nav-dropdown">Products</div>
+            <div class="logo">MrMust</div>
+            <div class="nav-dropdown">Meteorite Types</div>
             <div class="search-bar">
-                <div class="search-dropdown">All <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></div>
-                <input type="text" class="search-input" placeholder="What are you looking for?">
+                <div class="search-dropdown">All Meteorites <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></div>
+                <input type="text" class="search-input" placeholder="Search for meteorites by name or type...">
                 <button class="search-button">Search</button>
             </div>
         </div>
     </div>
 
-    <!-- Secondary Navigation Bar -->
     <div class="secondary-nav-wrapper">
         <div class="secondary-nav">
-            <a href="#" class="secondary-nav-link secondary-nav-dropdown">All categories</a>
-            <a href="#" class="secondary-nav-link">Featured selections</a>
-            <a href="#" class="secondary-nav-link">Order protections</a>
-            <!-- Alibaba banner text -->
-            <span style="color: #ff6600; font-size: 0.9em; margin-left: auto;">Alibaba protects you from payment to delivery with Trade Assurance.</span>
+            <a href="#categories" class="secondary-nav-link secondary-nav-dropdown">All Meteorite Categories</a>
+            <a href="#new-arrivals" class="secondary-nav-link">New Arrivals</a>
+            <a href="#featured" class="secondary-nav-link">Featured Collections</a>
+            <span style="color: #ff6600; font-size: 0.9em; margin-left: auto;"><span class="material-icons" style="font-size: 1em; vertical-align: middle;">verified</span> Authenticity Guaranteed by MrMustapha's Workshop.</span>
         </div>
     </div>
 
-    <!-- Main Content Area: Sidebar + Product Grid -->
+    <div class="why-choose-us">
+        <h2>Why Choose MrMustapha's Workshop?</h2>
+        <div class="why-features">
+            <div class="feature-item">
+                <span class="material-icons">star</span>
+                <h3>Authenticity Guaranteed</h3>
+                <p>Every meteorite is rigorously authenticated by experts, ensuring you receive genuine pieces from space.</p>
+            </div>
+            <div class="feature-item">
+                <span class="material-icons">diamond</span>
+                <h3>Rare & Exclusive Finds</h3>
+                <p>We specialize in sourcing unique and rare meteorites, including Martian and Lunar specimens, for discerning collectors.</p>
+            </div>
+            <div class="feature-item">
+                <span class="material-icons">science</span>
+                <h3>Scientific Pedigree</h3>
+                <p>Each acquisition comes with detailed provenance and scientific information, making it a true educational treasure.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="content-area">
-        <!-- Left Sidebar -->
         <div class="sidebar">
             <div class="sidebar-section">
-                <div class="sidebar-title">Categories</div>
+                <div class="sidebar-title">Meteorite Types</div>
                 <ul class="sidebar-list">
-                    <li><a href="#">Power Banks & Power Station</a></li>
-                    <li><a href="#">Chargers & Adapters</a></li>
-                    <li><a href="#">Smart Watches</a></li>
-                    <li><a href="#">Gift Sets</a></li>
-                    <li><a href="#">Other Categories...</a></li>
+                    <li><a href="#stony">Stony Meteorites (Chondrites & Achondrites)</a></li>
+                    <li><a href="#iron">Iron Meteorites</a></li>
+                    <li><a href="#stony-iron">Stony-Iron Meteorites (Pallasites & Mesosiderites)</a></li>
+                    <li><a href="#martian">Martian Meteorites</a></li>
+                    <li><a href="#lunar">Lunar Meteorites</a></li>
+                    <li><a href="#classified">Classified Meteorites</a></li>
                 </ul>
             </div>
 
             <div class="sidebar-section">
-                <div class="sidebar-title">Supplier type</div>
+                <div class="sidebar-title">Certification & Provenance</div>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" checked> Trade Assurance</label>
-                    <label><input type="checkbox" checked> Verified Supplier</label>
+                    <label><input type="checkbox" checked> Authenticity Certificate</label>
+                    <label><input type="checkbox" checked> Scientific Classification</label>
                 </div>
             </div>
 
             <div class="sidebar-section">
-                <div class="sidebar-title">Min. order</div>
-                <input type="text" class="sidebar-input" placeholder="Min. order">
-                <button class="sidebar-button">OK</button>
+                <div class="sidebar-title">Weight (grams)</div>
+                <input type="text" class="sidebar-input" placeholder="Min. weight">
+                <button class="sidebar-button">Apply</button>
             </div>
 
             <div class="sidebar-section">
-                <div class="sidebar-title">Supplier country/region</div>
-                <input type="text" class="sidebar-input" placeholder="Search">
+                <div class="sidebar-title">Find Location</div>
+                <input type="text" class="sidebar-input" placeholder="Search country/continent">
                 <div class="checkbox-group" style="margin-top: 10px;">
-                    <label><input type="checkbox"> Austria</label>
-                    <label><input type="checkbox"> Bangladesh</label>
-                    <label><input type="checkbox"> Belgium</label>
-                    <label><input type="checkbox"> Cambodia</label>
-                    <label><input type="checkbox"> Canada</label>
-                    <label><input type="checkbox"> China</label>
-                    <label><input type="checkbox"> Denmark</label>
-                    <label><input type="checkbox"> France</label>
-                    <label><input type="checkbox"> Germany</label>
+                    <label><input type="checkbox"> Africa</label>
+                    <label><input type="checkbox"> Antarctica</label>
+                    <label><input type="checkbox"> Asia</label>
+                    <label><input type="checkbox"> Europe</label>
+                    <label><input type="checkbox"> North America</label>
+                    <label><input type="checkbox"> South America</label>
+                    <label><input type="checkbox"> Australia</label>
                 </div>
             </div>
 
             <div class="sidebar-section">
-                <div class="sidebar-title">Management certifications</div>
+                <div class="sidebar-title">Featured Collections</div>
                 <ul class="sidebar-list">
-                    <li><a href="#">CE</a></li>
-                    <li><a href="#">RoHS</a></li>
-                    <li><a href="#">FCC</a></li>
+                    <li><a href="#">Rare Finds</a></li>
+                    <li><a href="#">Newly Classified</a></li>
+                    <li><a href="#">Affordable Gems</a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Product Grid Area -->
         <div class="product-grid-area">
             <div class="product-grid-header">
-                <h2>Online Product Selling</h2>
-                <span class="product-count">(53125 products available)</span>
+                <h2>Our Exquisite Meteorite Collection</h2>
+                <span class="product-count">(9 unique specimens available)</span>
             </div>
 
             <div class="product-grid">
-                <!-- Product Card 1 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/kGRhNqe.jpeg" alt="Unique Chondrite Specimen">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Featured</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Unique Chondrite Specimen with Fusion Crust</div>
+                        <div class="product-card-title">Unique Chondrite Specimen with Stunning Fusion Crust</div>
                         <div class="product-price"><sup>$</sup>950<sup>.00</sup> - <sup>$</sup>1,200<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Shenzhen Beta Cosmet...</div>
+                        <div class="supplier-info">Found: Sahara Desert, 2023</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 2 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/d5MwH4k.jpeg" alt="Rare Iron Meteorite Slice">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">New Arrival</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Rare Iron Meteorite Slice with Widmanstätten Patterns</div>
+                        <div class="product-card-title">Exquisite Iron Meteorite Slice with Widmanstätten Patterns</div>
                         <div class="product-price"><sup>$</sup>1,500<sup>.00</sup> - <sup>$</sup>2,000<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">CN Dongguan Tianzi...</div>
+                        <div class="supplier-info">Found: Siberia, Russia, 1947</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 3 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/EUSWpWH.jpeg" alt="Pallasite with Olivine Crystals">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Premium</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Stunning Pallasite Meteorite with Gem-Quality Olivine</div>
+                        <div class="product-card-title">Stunning Pallasite Meteorite with Vivid Olivine Crystals</div>
                         <div class="product-price"><sup>$</sup>2,800<sup>.00</sup> - <sup>$</sup>3,500<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">New Blackhead Nose Washing...</div>
+                        <div class="supplier-info">Found: Kansas, USA, 1881</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 4 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/0qww4V9.jpeg" alt="Detailed Martian Meteorite">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Rare</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Authentic Martian Meteorite Fragment - Rare Find</div>
+                        <div class="product-card-title">Authentic Martian Meteorite Fragment - Extremely Rare</div>
                         <div class="product-price"><sup>$</sup>3,500<sup>.00</sup> - <sup>$</sup>4,200<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Japanese Hot Girl Electric...</div>
+                        <div class="supplier-info">Found: Northwest Africa, 2012</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 5 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/bwJsZgc.jpeg" alt="Textured Stony Meteorite">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Popular</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Naturally Textured Stony Meteorite - Collectible</div>
+                        <div class="product-card-title">Beautifully Textured Stony Meteorite - Entry Level</div>
                         <div class="product-price"><sup>$</sup>700<sup>.00</sup> - <sup>$</sup>900<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">DALTON Smart Lock</div>
+                        <div class="supplier-info">Found: Moroccan Sahara, 2020</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 6 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/MjVkzRZ.jpeg" alt="Glossy Fusion Crust Meteorite">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Collector's Item</div>
                     <div class="product-card-content">
-                        <div class="product-card-title">Meteorite with Perfectly Preserved Glossy Fusion Crust</div>
+                        <div class="product-card-title">Meteorite with Impeccable Glossy Fusion Crust</div>
                         <div class="product-price"><sup>$</sup>1,100<sup>.00</sup> - <sup>$</sup>1,500<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Comes with 4 wires more...</div>
+                        <div class="supplier-info">Found: Atacama Desert, Chile, 1998</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust Meteorite" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust Meteorite" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 7 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/hposzie.jpeg" alt="Impact Melt Breccia">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Unique</div>
                     <div class="product-card-content">
                         <div class="product-card-title">Impact Melt Breccia - A Fragment of Cosmic Collision</div>
                         <div class="product-price"><sup>$</sup>1,300<sup>.00</sup> - <sup>$</sup>1,800<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Supplier Name Here</div>
+                        <div class="supplier-info">Found: Libyan Desert, 2005</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Impact Melt Breccia" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Impact Melt Breccia" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 8 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/HZJzyKI.jpeg" alt="Achondrite with Unique Composition">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Rare</div>
                     <div class="product-card-content">
                         <div class="product-card-title">Achondrite Meteorite - Unique Planetary Fragment</div>
                         <div class="product-price"><sup>$</sup>1,900<sup>.00</sup> - <sup>$</sup>2,500<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Another Supplier</div>
+                        <div class="supplier-info">Found: Northwest Africa, 2018</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Achondrite with Unique Composition" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Achondrite with Unique Composition" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- Product Card 9 -->
                 <div class="product-card">
                     <img src="https://i.imgur.com/dFNdOIA.jpeg" alt="Primitive Carbonaceous Chondrite">
-                    <div class="ad-label">Ad</div>
+                    <div class="ad-label">Extremely Rare</div>
                     <div class="product-card-content">
                         <div class="product-card-title">Primitive Carbonaceous Chondrite - Scientific Specimen</div>
                         <div class="product-price"><sup>$</sup>4,000<sup>.00</sup> - <sup>$</sup>5,000<sup>.00</sup></div>
                         <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Global Meteorites Inc.</div>
+                        <div class="supplier-info">Found: Lake Tagish, Canada, 2000</div>
                         <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Verified Supplier</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Trade Assurance</span>
+                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Primitive Carbonaceous Chondrite" class="contact-supplier-button">Contact supplier</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Primitive Carbonaceous Chondrite" class="contact-supplier-button">Inquire Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
+        <ul class="footer-links">
+            <li><a href="#about">About MrMustapha's Workshop</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#sitemap">Sitemap</a></li>
+        </ul>
         <p>&copy; 2025 MrMustapha's Workshop. All rights reserved.</p>
     </div>
 </body>
