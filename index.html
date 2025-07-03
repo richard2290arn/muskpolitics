@@ -1,55 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MuskPolitics - Technology & Politics Insights</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        body {
-            padding-top: 4rem;
-            background-color: #f8f9fa;
-        }
-        .footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            background-color: #212529;
-            color: white;
-            text-align: center;
-        }
-        .hero-title {
-            font-weight: 700;
-            font-size: 3rem;
-        }
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MuskPolitics | Technology & Politics Insights</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">MuskPolitics</a>
-        </div>
-    </nav>
+<body class="bg-gray-100 text-gray-900 font-sans">
 
-    <main class="container text-center">
-        <div class="hero-title mb-3">Exploring the Intersection of Technology, Innovation, and Politics</div>
-        <p class="hero-subtitle mb-5">Stay informed with the latest insights and future trends.</p>
+  <header class="bg-blue-800 text-white p-6 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold">MuskPolitics</h1>
+      <nav class="space-x-4">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-        <a href="#contact" class="btn btn-primary btn-lg mb-5">Contact Us</a>
+  <main class="container mx-auto mt-12 px-4">
+    <section id="home" class="mb-20 text-center">
+      <h2 class="text-4xl font-extrabold mb-4">Exploring the Intersection of Technology, Innovation, and Politics</h2>
+      <p class="text-lg max-w-3xl mx-auto mb-8">Stay informed with the latest insights and future trends shaping our world.</p>
+      <a href="#contact" class="inline-block bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 transition">Get in Touch</a>
+    </section>
 
-        <section id="contact" class="mb-5">
-            <h2>Contact</h2>
-            <p>If you want to get in touch, email me at <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a></p>
-        </section>
-    </main>
+    <section id="about" class="mb-20 max-w-4xl mx-auto bg-white p-8 rounded shadow-md">
+      <h3 class="text-2xl font-semibold mb-4">About MuskPolitics</h3>
+      <p class="text-gray-700 leading-relaxed">
+        MuskPolitics is a platform dedicated to analyzing the evolving landscape where technology meets politics.
+        We provide expert insights, news updates, and deep dives into innovations shaping policies worldwide.
+      </p>
+    </section>
 
-    <footer class="footer">
-        <div>© 2025 MuskPolitics | Developed with ❤️ by Richard</div>
-    </footer>
+    <section id="contact" class="mb-20 max-w-4xl mx-auto bg-white p-8 rounded shadow-md">
+      <h3 class="text-2xl font-semibold mb-4">Contact Us</h3>
+      <p class="mb-4">Have questions or want to collaborate? Reach out at:</p>
+      <a href="mailto:orawn.nsam7@gmail.com" class="text-blue-600 hover:underline">orawn.nsam7@gmail.com</a>
+    </section>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <footer class="bg-gray-800 text-gray-300 py-6 text-center">
+    <p>© 2025 MuskPolitics | Developed with ❤️ by Richard</p>
+  </footer>
+
 </body>
 </html>
