@@ -6,144 +6,124 @@
   <title>MuskPolitics - Latest News</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #f0f0f0;
-      margin: 0; padding: 0;
+      color: white;
+      margin: 0;
+      padding: 20px;
     }
     header {
-      background-color: #142850;
-      padding: 1rem;
       text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      margin-bottom: 30px;
     }
-    main {
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+    #news-container {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .news-list {
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .news-item {
-      background: #27496d;
+    .article {
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      overflow: hidden;
+      padding: 15px;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s ease;
     }
-    .news-item:hover {
-      transform: translateY(-5px);
-    }
-    .news-img {
+    .article img {
       width: 100%;
-      height: 160px;
+      border-radius: 6px;
       object-fit: cover;
+      max-height: 180px;
+      margin-bottom: 10px;
     }
-    .news-content {
-      padding: 1rem;
+    .article h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+    }
+    .article p {
       flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      font-size: 0.95em;
+      line-height: 1.3;
     }
-    .news-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      color: #f9d342;
-    }
-    .news-description {
-      flex-grow: 1;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      color: #d6d6d6;
-    }
-    .news-meta {
-      font-size: 0.8rem;
-      color: #bbb;
+    .article a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      align-self: flex-start;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      color: #ccc;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-    }
-    a {
-      color: #f9d342;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .error {
-      text-align: center;
-      font-weight: bold;
-      color: #ff4c4c;
-      margin-top: 2rem;
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <header>MuskPolitics - Latest News</header>
-  <main>
-    <div id="news" class="news-list"></div>
-    <div id="error" class="error" style="display:none;">⚠️ Failed to load news. Please try again later.</div>
-  </main>
+  <header>
+    <h1>MuskPolitics - Latest News</h1>
+  </header>
+
+  <div id="news-container">Loading news...</div>
+
   <footer>
-    Contact: <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a><br />
-    © 2025 MuskPolitics | Developed by Richard
+    Contact us: <a href="mailto:orawn.nsam7@gmail.com" style="color:#ffd700;">orawn.nsam7@gmail.com</a><br />
+    &copy; 2025 MuskPolitics | Developed by Richard
   </footer>
 
   <script>
-    const newsContainer = document.getElementById('news');
-    const errorDiv = document.getElementById('error');
-
     async function fetchNews() {
-      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // بدلها بالمفتاح ديالك
+      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // المفتاح ديالك هنا
       const url = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${apiKey}`;
 
       try {
-        const response = await fetch(url, {
-          headers: {
-            'User-Agent': 'MuskPolitics-News-App' // بعض API كتحتاج
-          }
-        });
-        const data = await response.json();
+        const res = await fetch(url);
+        const data = await res.json();
 
-        if(data.status !== "ok") {
-          throw new Error(data.message || "Failed to fetch news");
-        }
+        const container = document.getElementById('news-container');
+        container.innerHTML = '';
 
-        if(data.articles.length === 0) {
-          newsContainer.innerHTML = '<p>No news found at the moment.</p>';
+        if (data.status !== 'ok' || data.articles.length === 0) {
+          container.textContent = '⚠️ No news found or error loading news.';
           return;
         }
 
-        newsContainer.innerHTML = data.articles.map(article => `
-          <div class="news-item">
-            <img class="news-img" src="${article.urlToImage || 'https://via.placeholder.com/400x200?text=No+Image'}" alt="News Image" />
-            <div class="news-content">
-              <h2 class="news-title"><a href="${article.url}" target="_blank" rel="noopener">${article.title}</a></h2>
-              <p class="news-description">${article.description || ''}</p>
-              <div class="news-meta">${new Date(article.publishedAt).toLocaleString()}</div>
-            </div>
-          </div>
-        `).join('');
+        data.articles.forEach(article => {
+          const articleElem = document.createElement('div');
+          articleElem.className = 'article';
 
-        errorDiv.style.display = 'none';
+          const img = document.createElement('img');
+          img.src = article.urlToImage || 'https://via.placeholder.com/400x200?text=No+Image';
+          img.alt = article.title;
+
+          const title = document.createElement('h3');
+          title.textContent = article.title;
+
+          const desc = document.createElement('p');
+          desc.textContent = article.description || 'No description available.';
+
+          const link = document.createElement('a');
+          link.href = article.url;
+          link.target = '_blank';
+          link.textContent = 'Read more';
+
+          articleElem.appendChild(img);
+          articleElem.appendChild(title);
+          articleElem.appendChild(desc);
+          articleElem.appendChild(link);
+
+          container.appendChild(articleElem);
+        });
       } catch (error) {
+        document.getElementById('news-container').textContent = '⚠️ Error loading news.';
         console.error('Error fetching news:', error);
-        newsContainer.innerHTML = '';
-        errorDiv.style.display = 'block';
       }
     }
 
