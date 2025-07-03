@@ -1,83 +1,93 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Meteorite Gallery</title>
-    <style>
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #eee;
-            margin: 0; padding: 0;
-        }
-        header {
-            background-color: #1a1a1a;
-            padding: 1rem;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-        .card {
-            background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #000;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .card .desc {
-            padding: 10px;
-            font-size: 1rem;
-            line-height: 1.4;
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9rem;
-            color: #777;
-            background-color: #111;
-            margin-top: 30px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>معرض النيازك - Meteorite Gallery</title>
+<style>
+  body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #1f2833;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background-color: #45a29e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgb(69 162 158 / 0.7);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .desc {
+    padding: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #0b0c10;
+  }
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    background-color: #1f2833;
+    color: #66fcf1;
+    margin-top: 40px;
+  }
+</style>
 </head>
 <body>
-    <header>صور ونصوص عن النيازك</header>
 
-    <main class="gallery">
-        <div class="card">
-            <img src="images/meteorite1.jpg" alt="نيزك 1" />
-            <div class="desc">نيزك نزل من السماء، رمز القوة والصلابة</div>
-        </div>
-        <div class="card">
-            <img src="images/meteorite2.jpg" alt="نيزك 2" />
-            <div class="desc">أتمنى لك حياة مليئة بالنور والقوة</div>
-        </div>
-        <div class="card">
-            <img src="images/meteorite3.jpg" alt="نيزك 3" />
-            <div class="desc">حجر من الفضاء، معناه الأمل والتجدد</div>
-        </div>
-        <!-- زيد بزاف ديال الكروت حسب الحاجة -->
-    </main>
+<header>معرض النيازك - Meteorite Gallery</header>
 
-    <footer>
-        موقع بسيط لعرض صور النيازك وأتمنى لكم كل الخير
-    </footer>
+<main>
+  <div class="gallery">
+    <div class="card">
+      <img src="images/meteorite1.jpg" alt="نيزك 1" />
+      <div class="desc">نيزك نزل من السماء، رمز القوة والصلابة</div>
+    </div>
+    <div class="card">
+      <img src="images/meteorite2.jpg" alt="نيزك 2" />
+      <div class="desc">أتمنى لك حياة مليئة بالنور والقوة</div>
+    </div>
+    <div class="card">
+      <img src="images/meteorite3.jpg" alt="نيزك 3" />
+      <div class="desc">حجر من الفضاء، معناه الأمل والتجدد</div>
+    </div>
+    <!-- زد حسب الحاجة -->
+  </div>
+</main>
+
+<footer>
+  © 2025 MuskPolitics | Developed by Richard
+</footer>
+
 </body>
 </html>
