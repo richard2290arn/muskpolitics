@@ -7,16 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* New Accent Color Variables (Vibrant Neon Green) */
+        /* New Accent Color Variables (Warm Cosmic Orange-Red) */
         :root {
-            --accent-color: #39FF14; /* Vibrant Neon Green */
-            --accent-color-hover: #2ED110; /* Slightly darker green for hover */
-            --dark-bg-primary: #080808; /* Very dark background for main elements */
-            --dark-bg-secondary: #121212; /* Slightly lighter for cards/sections, gives subtle layering */
-            --text-light: #F0F0F0; /* Main bright text */
-            --text-medium: #C0C0C0; /* Secondary lighter text */
-            --text-dark: #888888; /* Subtle text */
-            --border-color: #282828; /* Dark border */
+            --accent-color: #FF5722; /* Deep Orange-Red (warm, cosmic) */
+            --accent-color-hover: #E64A19; /* Slightly darker for hover */
+            --dark-bg-primary: #0A0A0A; /* Very dark background for main elements */
+            --dark-bg-secondary: #161616; /* Slightly lighter for cards/sections, gives subtle layering */
+            --text-light: #F8F8F8; /* Main bright text */
+            --text-medium: #D0D0D0; /* Secondary lighter text */
+            --text-dark: #A0A0A0; /* Subtle text */
+            --border-color: #303030; /* Dark border */
         }
 
         /* General Body and Base Styles */
@@ -24,9 +24,12 @@
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Wa3r Background: Enhanced Radial Gradient for Deeper Space Feel */
-            background: radial-gradient(circle at center, #101010 0%, #000000 100%);
-            background-attachment: fixed;
+            /* Wa3r Background: Complex Multi-Layered Gradient for Deep Cosmic Feel */
+            background: 
+                radial-gradient(circle at center, #181818 0%, transparent 80%),
+                linear-gradient(to bottom, #050505 0%, #000000 100%);
+            background-blend-mode: overlay, normal; /* Blend modes for depth */
+            background-attachment: fixed; /* Ensures gradient covers viewport */
             color: var(--text-light);
             line-height: 1.6;
             font-size: 14px;
@@ -42,7 +45,7 @@
             background-color: var(--dark-bg-primary);
             color: #ffffff;
             border-bottom: 1px solid var(--border-color);
-            padding: 7px 0; /* Minimized padding */
+            padding: 7px 0;
             box-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
@@ -58,11 +61,11 @@
         .top-header-left, .top-header-right {
             display: flex;
             align-items: center;
-            gap: 15px; /* Minimized gap */
+            gap: 16px;
         }
 
         .top-header-link {
-            font-size: 0.75em; /* Smallest font */
+            font-size: 0.75em;
             color: var(--text-medium);
             transition: color 0.2s;
         }
@@ -73,10 +76,10 @@
         .top-header-button {
             background-color: var(--accent-color);
             color: #ffffff;
-            padding: 4px 8px; /* Minimized padding */
-            border-radius: 3px; /* Smaller radius */
+            padding: 4px 8px;
+            border-radius: 3px;
             font-weight: bold;
-            font-size: 0.8em; /* Minimized font */
+            font-size: 0.8em;
             transition: background-color 0.2s, transform 0.1s;
         }
         .top-header-button:hover {
@@ -87,10 +90,10 @@
         /* Main Header Section (Logo, Search, Nav) */
         .main-header-wrapper {
             background-color: var(--dark-bg-primary);
-            padding: 12px 0; /* Minimized padding */
+            padding: 12px 0;
             border-bottom: 3px solid;
-            border-image: linear-gradient(to right, var(--accent-color), transparent 70%) 1; /* Accent fades out */
-            box-shadow: 0 3px 6px rgba(0,0,0,0.6); /* Sharper shadow */
+            border-image: linear-gradient(to right, var(--accent-color), transparent 70%) 1;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.6);
         }
 
         .main-header {
@@ -98,18 +101,22 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            gap: 20px; /* Minimized gap */
+            gap: 20px;
             padding: 0 20px;
         }
 
-        .logo {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2.2em; /* Reduced logo size */
-            font-weight: 900;
-            color: var(--accent-color);
-            letter-spacing: -1.5px;
-            text-shadow: 0 0 12px var(--accent-color); /* Stronger glow for logo */
+        /* --- Logo Image Styling --- */
+        .logo-img {
+            max-height: 45px; /* Adjust height as needed for your logo image */
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 0 12px var(--accent-color)) brightness(1.1); /* Brighter, more defined glow for image logo */
+            transition: filter 0.3s ease-in-out;
         }
+        .logo-img:hover {
+            filter: drop-shadow(0 0 18px var(--accent-color)) brightness(1.2); /* More intense glow on hover */
+        }
+        /* --- End Logo Image Styling --- */
 
         .nav-dropdown {
             position: relative;
@@ -117,7 +124,7 @@
             padding: 4px 0;
             color: #ffffff;
             font-weight: 500;
-            font-size: 0.9em; /* Reduced font size */
+            font-size: 0.9em;
             transition: color 0.2s;
         }
         .nav-dropdown:hover {
@@ -125,7 +132,7 @@
         }
         .nav-dropdown::after {
             content: '▼';
-            font-size: 0.5em; /* Minimized indicator */
+            font-size: 0.5em;
             margin-left: 4px;
             vertical-align: middle;
         }
@@ -133,21 +140,21 @@
         .search-bar {
             display: flex;
             flex-grow: 1;
-            border-radius: 18px; /* Minimized radius */
+            border-radius: 18px;
             overflow: hidden;
-            background-color: #181818; /* Darker for search */
+            background-color: #181818;
             border: 1px solid #333;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4); /* Sharper inner shadow */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
         }
 
         .search-dropdown {
             background-color: #222222;
             color: #ffffff;
-            padding: 7px 10px; /* Minimized padding */
+            padding: 7px 10px;
             border-right: 1px solid #333;
             cursor: pointer;
             font-weight: 500;
-            font-size: 0.85em; /* Minimized font */
+            font-size: 0.85em;
             display: flex;
             align-items: center;
             gap: 4px;
@@ -158,18 +165,18 @@
         }
         .search-dropdown::after {
             content: '▼';
-            font-size: 0.5em; /* Minimized indicator */
+            font-size: 0.5em;
             margin-left: 4px;
         }
 
         .search-input {
             flex-grow: 1;
-            padding: 7px 10px; /* Minimized padding */
+            padding: 7px 10px;
             border: none;
             outline: none;
             background-color: #181818;
             color: #ffffff;
-            font-size: 0.9em; /* Minimized font */
+            font-size: 0.9em;
         }
         .search-input::placeholder {
             color: var(--text-dark);
@@ -178,10 +185,10 @@
         .search-button {
             background-color: var(--accent-color);
             color: #ffffff;
-            padding: 7px 15px; /* Minimized padding */
+            padding: 7px 15px;
             border: none;
             cursor: pointer;
-            font-size: 0.9em; /* Minimized font */
+            font-size: 0.9em;
             font-weight: bold;
             transition: background-color 0.2s, transform 0.1s;
         }
@@ -195,7 +202,7 @@
             flex-direction: column;
             align-items: center;
             color: #ffffff;
-            font-size: 0.7em; /* Minimized font */
+            font-size: 0.7em;
             gap: 2px;
             transition: color 0.2s;
         }
@@ -203,13 +210,13 @@
             color: var(--accent-color);
         }
         .icon-link .material-icons {
-            font-size: 18px; /* Minimized icons */
+            font-size: 18px;
         }
 
         /* Secondary Navigation Bar */
         .secondary-nav-wrapper {
             background-color: var(--dark-bg-secondary);
-            padding: 7px 0; /* Minimized padding */
+            padding: 7px 0;
             border-bottom: 1px solid var(--border-color);
             box-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
@@ -217,12 +224,12 @@
             max-width: 1300px;
             margin: 0 auto;
             display: flex;
-            gap: 18px; /* Minimized gap */
+            gap: 18px;
             padding: 0 20px;
         }
         .secondary-nav-link {
             color: var(--text-medium);
-            font-size: 0.8em; /* Minimized font */
+            font-size: 0.8em;
             font-weight: 500;
             padding: 4px 0;
             transition: color 0.2s;
@@ -239,16 +246,16 @@
 
         /* Why Choose Us Section (Minimized & Ultra HD) */
         .why-choose-us {
-            max-width: 900px; /* **Significantly reduced max-width** */
-            margin: 30px auto; /* Minimized vertical margin */
-            padding: 20px 15px; /* Minimized padding */
+            max-width: 900px; /* Significantly reduced max-width */
+            margin: 30px auto;
+            padding: 20px 15px;
             background-color: var(--dark-bg-secondary);
-            border-radius: 8px; /* Consistent radius */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.7); /* Sharper, deeper shadow */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
             text-align: center;
             border: 1px solid #282828;
-            position: relative; /* For a subtle border glow */
-            overflow: hidden; /* For pseudo-element glow */
+            position: relative;
+            overflow: hidden;
         }
         /* Subtle border glow effect */
         .why-choose-us::before {
@@ -256,14 +263,14 @@
             position: absolute;
             inset: 0;
             border-radius: 8px;
-            padding: 2px; /* Thickness of the glow border */
+            padding: 2px;
             background: linear-gradient(45deg, var(--accent-color) 0%, transparent 50%, var(--accent-color) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
-            animation: rotateGlow 8s linear infinite; /* Animation for subtle movement */
-            opacity: 0.3; /* Less intense glow */
+            animation: rotateGlow 8s linear infinite;
+            opacity: 0.3;
         }
 
         @keyframes rotateGlow {
@@ -272,48 +279,48 @@
         }
 
         .why-choose-us h2 {
-            font-size: 1.8em; /* Reduced title size */
+            font-size: 1.8em;
             color: var(--accent-color);
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 0 0 8px var(--accent-color); /* Sharper glow for title */
+            text-shadow: 0 0 8px var(--accent-color);
         }
         .why-features {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px; /* Reduced gap */
+            gap: 20px;
         }
         .feature-item {
-            flex-basis: 30%; /* Adjusted for more balanced spacing */
+            flex-basis: 30%;
             min-width: 250px;
-            background-color: #1a1a1a; /* Darker background for feature items */
-            padding: 20px; /* Reduced padding */
+            background-color: #1a1a1a;
+            padding: 20px;
             border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.7); /* Sharper, deeper shadow */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
             text-align: center;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
             border: 1px solid #282828;
         }
         .feature-item:hover {
-            transform: translateY(-5px); /* Less lift on hover */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.8); /* Stronger shadow on hover */
-            border-color: var(--accent-color); /* Border glows on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+            border-color: var(--accent-color);
         }
         .feature-item .material-icons {
-            font-size: 40px; /* Slightly reduced icon size */
+            font-size: 40px;
             color: var(--accent-color);
             margin-bottom: 12px;
-            text-shadow: 0 0 15px var(--accent-color); /* Intense glow for icons */
+            text-shadow: 0 0 15px var(--accent-color);
         }
         .feature-item h3 {
-            font-size: 1.2em; /* Reduced font size */
+            font-size: 1.2em;
             color: #ffffff;
             margin-bottom: 8px;
             font-weight: 500;
         }
         .feature-item p {
-            font-size: 0.9em; /* Reduced font size */
+            font-size: 0.9em;
             color: var(--text-medium);
         }
 
@@ -322,7 +329,7 @@
             max-width: 1300px;
             margin: 40px auto;
             display: flex;
-            gap: 25px; /* Reduced gap */
+            gap: 25px;
             padding: 0 20px;
         }
 
@@ -457,7 +464,7 @@
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            border-color: var(--accent-color); /* Border glows on hover */
+            border-color: var(--accent-color);
         }
 
         .product-card img {
@@ -576,8 +583,8 @@
             margin-top: 50px;
             font-size: 0.9em;
             border-top: 3px solid;
-            border-image: linear-gradient(to left, var(--accent-color), transparent 70%) 1; /* Gradient border */
-            box-shadow: 0 -3px 8px rgba(0,0,0,0.6); /* Sharper shadow */
+            border-image: linear-gradient(to left, var(--accent-color), transparent 70%) 1;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.6);
         }
         .footer-links {
             list-style: none;
@@ -596,7 +603,7 @@
             color: var(--accent-color);
         }
 
-        /* Material Icons (already defined, just for consistency) */
+        /* Material Icons */
         .material-icons {
             font-family: 'Material Icons';
             font-weight: normal;
@@ -636,7 +643,8 @@
 
     <div class="main-header-wrapper">
         <div class="main-header">
-            <div class="logo">MrMust</div>
+            <img src="images/mrmust_logo.png" alt="MrMust Logo" class="logo-img">
+            
             <div class="nav-dropdown">Meteorite Types</div>
             <div class="search-bar">
                 <div class="search-dropdown">All Meteorites <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></div>
