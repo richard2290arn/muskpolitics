@@ -1,119 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MuskPolitics - Latest News</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #eee;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-    }
-    #news-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .article {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
-    }
-    .article:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-    .article h3 {
-      margin: 0 0 10px;
-      font-size: 1.3em;
-    }
-    .article h3 a {
-      color: #61dafb;
-      text-decoration: none;
-    }
-    .article h3 a:hover {
-      text-decoration: underline;
-    }
-    .article p {
-      font-size: 1em;
-      line-height: 1.5;
-      margin: 0 0 15px;
-    }
-    .article img {
-      max-width: 100%;
-      border-radius: 5px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #bbb;
-    }
-    footer a {
-      color: #61dafb;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meteorite Gallery</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #eee;
+            margin: 0; padding: 0;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .card {
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #000;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .card .desc {
+            padding: 10px;
+            font-size: 1rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #777;
+            background-color: #111;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
+    <header>صور ونصوص عن النيازك</header>
 
-  <h1>MuskPolitics - Latest News</h1>
+    <main class="gallery">
+        <div class="card">
+            <img src="images/meteorite1.jpg" alt="نيزك 1" />
+            <div class="desc">نيزك نزل من السماء، رمز القوة والصلابة</div>
+        </div>
+        <div class="card">
+            <img src="images/meteorite2.jpg" alt="نيزك 2" />
+            <div class="desc">أتمنى لك حياة مليئة بالنور والقوة</div>
+        </div>
+        <div class="card">
+            <img src="images/meteorite3.jpg" alt="نيزك 3" />
+            <div class="desc">حجر من الفضاء، معناه الأمل والتجدد</div>
+        </div>
+        <!-- زيد بزاف ديال الكروت حسب الحاجة -->
+    </main>
 
-  <div id="news-container">Loading news...</div>
-
-  <footer>
-    Contact: <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a><br/>
-    © 2025 MuskPolitics | Developed by Richard
-  </footer>
-
-  <script>
-    async function fetchNews() {
-      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // مفتاحك هنا
-      const url = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${apiKey}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      return data;
-    }
-
-    async function displayNews() {
-      const container = document.getElementById('news-container');
-      try {
-        const newsData = await fetchNews();
-        if (newsData.status === 'ok' && newsData.articles.length > 0) {
-          container.innerHTML = newsData.articles.map(article => `
-            <div class="article">
-              <h3><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h3>
-              <p>${article.description || ''}</p>
-              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}"/>` : ''}
-            </div>
-          `).join('');
-        } else {
-          container.textContent = '⚠️ No news found or error loading news.';
-        }
-      } catch (error) {
-        container.textContent = '⚠️ Failed to load news. Please try again later.';
-        console.error('Error fetching news:', error);
-      }
-    }
-
-    displayNews();
-  </script>
-
+    <footer>
+        موقع بسيط لعرض صور النيازك وأتمنى لكم كل الخير
+    </footer>
 </body>
 </html>
