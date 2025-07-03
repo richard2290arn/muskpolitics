@@ -1,104 +1,125 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MuskPolitics - أحدث الأخبار</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      text-align: center;
-    }
-    header {
-      padding: 2rem;
-      background-color: #111;
-      box-shadow: 0 0 10px #000;
-    }
-    h1 {
+      color: #ffffff;
       margin: 0;
-      font-size: 2.5rem;
-      color: #00ffd5;
+      padding: 0;
     }
-    p.tagline {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 0.5rem;
+
+    header {
+      background-color: #1e3c72;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
     }
-    .news-section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
+
+    .news-container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
-    .article {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      margin-bottom: 1rem;
+
+    .news-card {
+      background-color: #ffffff10;
+      border-radius: 15px;
+      padding: 15px;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      background-color: #ffffff20;
+    }
+
+    .news-card img {
+      width: 100%;
       border-radius: 10px;
-      text-align: right;
+      max-height: 200px;
+      object-fit: cover;
     }
-    .article h3 {
-      margin: 0 0 0.5rem;
-      color: #00ffd5;
+
+    .news-card h3 {
+      margin-top: 10px;
+      font-size: 1.2em;
     }
-    .article a {
-      color: #ffa500;
-      text-decoration: none;
+
+    .news-card p {
+      font-size: 0.95em;
+      line-height: 1.5;
     }
+
     footer {
-      padding: 2rem;
-      font-size: 0.9rem;
+      margin-top: 40px;
+      padding: 20px;
       background-color: #111;
-      color: #999;
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    .error {
+      text-align: center;
+      padding: 30px;
+      font-size: 1.3em;
+      color: #ffdddd;
+      background-color: #ff000030;
+      border-radius: 10px;
+      margin: 20px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>MuskPolitics</h1>
-    <p class="tagline">استكشف تقاطع التكنولوجيا، الابتكار، والسياسة</p>
+    MuskPolitics - أحدث الأخبار
   </header>
 
-  <section class="news-section" id="news">
-    <p>جاري تحميل الأخبار...</p>
-  </section>
+  <div class="news-container" id="news"></div>
+  <div id="error" class="error" style="display:none;">⚠️ خطأ في تحميل الأخبار.</div>
 
   <footer>
-    تواصل معنا: <a href="mailto:orawn.nsam7@gmail.com" style="color: #00ffd5;">orawn.nsam7@gmail.com</a><br>
+    تواصل معنا: <a href="mailto:orawn.nsam7@gmail.com" style="color:#ccc">orawn.nsam7@gmail.com</a><br />
     © 2025 MuskPolitics | مطور الموقع: Richard
   </footer>
 
   <script>
-    async function loadNews() {
-      const res = await fetch("https://ancient-water-1a85.orawn-nsam7.workers.dev/?topic=السياسة");
-      const data = await res.json();
+    const container = document.getElementById('news');
+    const errorDiv = document.getElementById('error');
 
-      const newsContainer = document.getElementById("news");
-      newsContainer.innerHTML = "";
-
-      if (!data.articles || data.articles.length === 0) {
-        newsContainer.innerHTML = "<p>⚠️ لا توجد أخبار حالياً.</p>";
-        return;
-      }
-
-      data.articles.forEach(article => {
-        const div = document.createElement("div");
-        div.className = "article";
-        div.innerHTML = `
-          <h3>${article.title}</h3>
-          <p>${article.description || "بدون وصف"}</p>
-          <a href="${article.url}" target="_blank">اقرأ المزيد</a>
-        `;
-        newsContainer.appendChild(div);
+    fetch("https://ancient-water-1a85.orawn-nsam7.workers.dev/?url=https://newsapi.org/v2/top-headlines?country=ma&language=ar&apiKey=f6689de6ce134da7aea8172a8b626916")
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "ok") {
+          data.articles.forEach(article => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            card.innerHTML = `
+              <img src="${article.urlToImage || ''}" alt="خبر">
+              <h3>${article.title}</h3>
+              <p>${article.description || ''}</p>
+              <a href="${article.url}" target="_blank" style="color: #ffa;">اقرأ المزيد</a>
+            `;
+            container.appendChild(card);
+          });
+        } else {
+          errorDiv.style.display = 'block';
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        errorDiv.style.display = 'block';
       });
-    }
-
-    loadNews().catch(() => {
-      document.getElementById("news").innerHTML = "⚠️ خطأ في تحميل الأخبار.";
-    });
   </script>
 </body>
 </html>
