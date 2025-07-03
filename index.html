@@ -1,119 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MuskPolitics - Latest News</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #eee;
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-weight: 900;
-      letter-spacing: 1.2px;
-    }
-    #news-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .article {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
-    }
-    .article:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-    .article h3 {
-      margin: 0 0 10px;
-      font-size: 1.3em;
-    }
-    .article h3 a {
-      color: #61dafb;
-      text-decoration: none;
-    }
-    .article h3 a:hover {
-      text-decoration: underline;
-    }
-    .article p {
-      font-size: 1em;
-      line-height: 1.5;
-      margin: 0 0 15px;
-    }
-    .article img {
-      max-width: 100%;
-      border-radius: 5px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #bbb;
-    }
-    footer a {
-      color: #61dafb;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MuskPolitics - Latest News</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    margin: 0;
+    padding: 0;
+    color: #111;
+  }
+  header {
+    background: #0f2027;
+    background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+    padding: 20px 10px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.9rem;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    min-height: 60vh;
+  }
+  #news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+  }
+  article {
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease-in-out;
+  }
+  article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  }
+  article img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  article h2 {
+    font-size: 1.1rem;
+    margin: 12px 16px 8px;
+    color: #0f2027;
+  }
+  article h2 a {
+    text-decoration: none;
+    color: inherit;
+  }
+  article p {
+    font-size: 0.9rem;
+    margin: 0 16px 12px;
+    color: #333;
+  }
+  article small {
+    display: block;
+    margin: 0 16px 12px;
+    color: #555;
+    font-style: italic;
+  }
+  footer {
+    background: #203a43;
+    color: #ddd;
+    text-align: center;
+    padding: 1rem 10px;
+    font-size: 0.9rem;
+  }
+  .loading, .error-msg {
+    padding: 30px;
+    font-weight: bold;
+    color: #a00;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
 
+<header>
   <h1>MuskPolitics - Latest News</h1>
+</header>
 
-  <div id="news-container">Loading news...</div>
+<main>
+  <div id="news-container" class="loading">Loading news...</div>
+</main>
 
-  <footer>
-    Contact: <a href="mailto:orawn.nsam7@gmail.com">orawn.nsam7@gmail.com</a><br/>
-    © 2025 MuskPolitics | Developed by Richard
-  </footer>
+<footer>
+  Contact: <a href="mailto:orawn.nsam7@gmail.com" style="color:#99f2c8;">orawn.nsam7@gmail.com</a><br/>
+  &copy; 2025 MuskPolitics | Developed by Richard
+</footer>
 
-  <script>
-    async function fetchNews() {
-      const apiKey = 'f6689de6ce134da7aea8172a8b626916'; // مفتاحك هنا
-      const url = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${apiKey}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      return data;
-    }
+<script>
+async function fetchNews() {
+  const newsApiUrl = 'https://newsapi.org/v2/top-headlines?language=en&country=us';
+  const proxyUrl = 'https://ancient-water-1a85.orawn-nsam7.workers.dev/?url=' + encodeURIComponent(newsApiUrl);
 
-    async function displayNews() {
-      const container = document.getElementById('news-container');
-      try {
-        const newsData = await fetchNews();
-        if (newsData.status === 'ok' && newsData.articles.length > 0) {
-          container.innerHTML = newsData.articles.map(article => `
-            <div class="article">
-              <h3><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h3>
-              <p>${article.description || ''}</p>
-              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}"/>` : ''}
-            </div>
-          `).join('');
-        } else {
-          container.textContent = '⚠️ No news found or error loading news.';
-        }
-      } catch (error) {
-        container.textContent = '⚠️ Failed to load news. Please try again later.';
-        console.error('Error fetching news:', error);
-      }
-    }
+  try {
+    const response = await fetch(proxyUrl);
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    return null;
+  }
+}
 
-    displayNews();
-  </script>
+function renderNews(articles) {
+  const container = document.getElementById('news-container');
+  container.classList.remove('loading', 'error-msg');
+  container.innerHTML = '';
+
+  if (!articles || articles.length === 0) {
+    container.classList.add('error-msg');
+    container.textContent = '⚠️ No news found or error loading news.';
+    return;
+  }
+
+  articles.forEach(article => {
+    const art = document.createElement('article');
+    art.innerHTML = `
+      ${article.urlToImage ? `<img src="${article.urlToImage}" alt="News Image" />` : ''}
+      <h2><a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a></h2>
+      <p>${article.description || ''}</p>
+      <small>Source: ${article.source.name} | Published: ${new Date(article.publishedAt).toLocaleString()}</small>
+    `;
+    container.appendChild(art);
+  });
+}
+
+async function init() {
+  const container = document.getElementById('news-container');
+  container.textContent = 'Loading news...';
+  container.classList.add('loading');
+
+  const data = await fetchNews();
+  if (data && data.status === 'ok') {
+    renderNews(data.articles);
+  } else {
+    container.classList.remove('loading');
+    container.classList.add('error-msg');
+    container.textContent = '⚠️ Failed to load news. Please try again later.';
+  }
+}
+
+init();
+</script>
 
 </body>
 </html>
