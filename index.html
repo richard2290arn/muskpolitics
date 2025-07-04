@@ -136,7 +136,7 @@
             transition: filter 0.3s ease-in-out;
         }
         .logo-img:hover {
-            filter: drop-shadow(0 0 18px var(--accent-color)) brightness(1.2); /* More intense glow on hover */
+            filter: drop_shadow(0 0 18px var(--accent-color)) brightness(1.2); /* More intense glow on hover */
         }
         /* --- End Logo Image Styling --- */
 
@@ -517,16 +517,16 @@
         /* Why Choose Us Section (Moved to Bottom & Minimized for Ultra HD Look) */
         .why-choose-us {
             max-width: 900px;
-            margin: 40px auto; /* Adjust margin to create space before footer */
-            padding: 25px 20px; /* Adjusted padding */
+            margin: 40px auto;
+            padding: 25px 20px;
             background-color: var(--dark-bg-secondary);
             border-radius: 8px;
             box-shadow: 0 4px 12px var(--shadow-color-strong);
-            text-align: center; /* Ensures content is centered */
+            text-align: center;
             border: 1px solid #282828;
             position: relative;
             overflow: hidden;
-            z-index: 1; /* Ensure this section is above overlay */
+            z-index: 1;
         }
         /* Subtle border glow effect */
         .why-choose-us::before {
@@ -636,7 +636,10 @@
             font-size: 0.85em;
             text-align: center;
         }
-        .visitor-counter-section .count-number {
+        .visitor-counter-section .counter-label {
+            font-weight: normal; /* Less bold for label */
+        }
+        .visitor-counter-section .counter-number {
             font-weight: bold;
             color: var(--accent-color);
             font-size: 1.1em;
@@ -941,10 +944,41 @@
             <li><a href="#sitemap">Sitemap</a></li>
         </ul>
         <div class="visitor-counter-section">
-            Visitors today: <span class="count-number">1,234</span> &bull; Total visitors: <span class="count-number">123,456</span>
-            <span class="note">To get real-time visitor stats, consider integrating Google Analytics.</span>
+            <span class="counter-label">Total Website Visits:</span>
+            <span id="total-visitors" class="counter-number">Loading...</span>
+            <span class="note">This number updates live, showing the total visits to this page.</span>
+            <span class="note">For detailed analytics (e.g., location, time spent), consider integrating Google Analytics.</span>
         </div>
         <p>&copy; 2025 MrMustapha's Workshop. All rights reserved.</p>
     </div>
+
+    <script>
+        // JavaScript for Real Visitor Counter using CountAPI
+        const namespace = 'mrmust_workshop'; // Unique identifier for your website's counter
+        const key = 'total_visits';         // Key for the specific counter (total visits)
+        const totalVisitorsElement = document.getElementById('total-visitors');
+
+        // Function to update the visitor count
+        async function updateVisitorCount() {
+            try {
+                // Increment the counter and get the new value
+                const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+                const data = await response.json();
+                
+                if (data && typeof data.value === 'number') {
+                    totalVisitorsElement.textContent = data.value.toLocaleString(); // Format with commas
+                } else {
+                    totalVisitorsElement.textContent = 'N/A'; // Handle API errors
+                    console.error('CountAPI: Invalid data received', data);
+                }
+            } catch (error) {
+                totalVisitorsElement.textContent = 'Error';
+                console.error('CountAPI: Failed to fetch visitor count:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', updateVisitorCount);
+    </script>
 </body>
 </html>
