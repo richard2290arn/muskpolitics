@@ -627,6 +627,28 @@
             color: var(--accent-color);
         }
 
+        /* Visitor Counter Section in Footer */
+        .visitor-counter-section {
+            padding: 10px 0;
+            margin-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-medium);
+            font-size: 0.85em;
+            text-align: center;
+        }
+        .visitor-counter-section .count-number {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1em;
+            margin-left: 5px;
+        }
+        .visitor-counter-section .note {
+            display: block;
+            font-size: 0.75em;
+            color: var(--text-dark);
+            margin-top: 5px;
+        }
+
         /* Material Icons */
         .material-icons {
             font-family: 'Material Icons';
@@ -918,6 +940,10 @@
             <li><a href="#terms">Terms of Service</a></li>
             <li><a href="#sitemap">Sitemap</a></li>
         </ul>
+        <div class="visitor-counter-section">
+            Visitors today: <span class="count-number">1,234</span> &bull; Total visitors: <span class="count-number">123,456</span>
+            <span class="note">To get real-time visitor stats, consider integrating Google Analytics.</span>
+        </div>
         <p>&copy; 2025 MrMustapha's Workshop. All rights reserved.</p>
     </div>
 </body>
