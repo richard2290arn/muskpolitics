@@ -3,656 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MrMustapha's Workshop - Your Premier Meteorite Source</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Welcome to Mustapha Legacy - Your Premier Meteorite Source</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Accent Color Variables (Deep Turquoise/Teal - Professional & Eye-Pleasing) */
-        :root {
-            --accent-color: #40E0D0; /* Deep Turquoise/Teal */
-            --accent-color-hover: #32C8BC; /* Slightly darker for hover */
-            --dark-bg-primary: #101010; /* Softened very dark background for main elements */
-            --dark-bg-secondary: #1E1E1E; /* Distinct, slightly lighter dark gray for cards/sections */
-            --text-light: #F0F0F0; /* Main bright text */
-            --text-medium: #C8C8C8; /* Secondary lighter text */
-            --text-dark: #989898; /* Subtle text */
-            --border-color: #383838; /* Softened dark border */
-            --shadow-color: rgba(0, 0, 0, 0.6); /* General shadow color */
-            --shadow-color-strong: rgba(0, 0, 0, 0.8); /* Stronger shadow color */
-        }
-
-        /* General Body and Base Styles */
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-light);
-            line-height: 1.6;
-            font-size: 14px;
-            
-            /* --- "Wa3r" Background Image with Overlay for 4K/8K Effect --- */
-            /* CRUCIAL: You MUST provide this image in your 'images' folder! */
-            background-image: url('images/cosmic_background.jpg'); 
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            position: relative; /* Needed for overlay */
-            z-index: 0; /* Ensure content is above overlay */
-        }
-
-        /* Background Overlay for Readability */
-        body::before {
-            content: '';
-            position: fixed; /* Fixed to cover the entire viewport */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75); /* Darker overlay for better contrast over detailed image */
-            z-index: -1; /* Place behind content */
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Top Header Section */
-        .top-header-wrapper {
-            background-color: var(--dark-bg-primary);
-            color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            padding: 7px 0;
-            box-shadow: 0 1px 2px var(--shadow-color);
-            position: relative;
-            z-index: 1; /* Ensure header is above overlay */
-        }
-
-        .top-header {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .top-header-left, .top-header-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .top-header-link {
-            font-size: 0.75em;
-            color: var(--text-medium);
-            transition: color 0.2s;
-        }
-        .top-header-link:hover {
-            color: var(--accent-color);
-        }
-
-        .top-header-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-            font-size: 0.8em;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        .top-header-button:hover {
-            background-color: var(--accent-color-hover);
-            transform: translateY(-1px);
-        }
-
-        /* Main Header Section (Logo, Search, Nav) */
-        .main-header-wrapper {
-            background-color: var(--dark-bg-primary);
-            padding: 12px 0;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(to right, var(--accent-color), transparent 70%) 1;
-            box-shadow: 0 3px 6px var(--shadow-color-strong);
-            position: relative;
-            z-index: 1; /* Ensure header is above overlay */
-        }
-
-        .main-header {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        /* --- Logo Image Styling --- */
-        .logo-img {
-            max-height: 45px; /* Adjust height as needed for your logo image */
-            width: auto;
-            display: block;
-            filter: drop-shadow(0 0 12px var(--accent-color)) brightness(1.1); /* Brighter, more defined glow for image logo */
-            transition: filter 0.3s ease-in-out;
-        }
-        .logo-img:hover {
-            filter: drop_shadow(0 0 18px var(--accent-color)) brightness(1.2); /* More intense glow on hover */
-        }
-        /* --- End Logo Image Styling --- */
-
-        .nav-dropdown {
-            position: relative;
-            cursor: pointer;
-            padding: 4px 0;
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 0.9em;
-            transition: color 0.2s;
-        }
-        .nav-dropdown:hover {
-            color: var(--accent-color);
-        }
-        .nav-dropdown::after {
-            content: '▼';
-            font-size: 0.5em;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-
-        .search-bar {
-            display: flex;
-            flex-grow: 1;
-            border-radius: 18px;
-            overflow: hidden;
-            background-color: #252525;
-            border: 1px solid #444;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
-        }
-
-        .search-dropdown {
-            background-color: #2E2E2E;
-            color: #ffffff;
-            padding: 7px 10px;
-            border-right: 1px solid #444;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.85em;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: background-color 0.2s;
-        }
-        .search-dropdown:hover {
-            background-color: #383838;
-        }
-        .search-input {
-            flex-grow: 1;
-            padding: 7px 10px;
-            border: none;
-            outline: none;
-            background-color: #252525;
-            color: #ffffff;
-            font-size: 0.9em;
-        }
-        .search-input::placeholder {
-            color: var(--text-dark);
-        }
-
-        .search-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 7px 15px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9em;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        .search-button:hover {
-            background-color: var(--accent-color-hover);
-            transform: translateY(-1px);
-        }
-
-        .icon-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #ffffff;
-            font-size: 0.7em;
-            gap: 2px;
-            transition: color 0.2s;
-        }
-        .icon-link:hover {
-            color: var(--accent-color);
-        }
-        .icon-link .material-icons {
-            font-size: 18px;
-        }
-
-        /* Secondary Navigation Bar */
-        .secondary-nav-wrapper {
-            background-color: var(--dark-bg-secondary);
-            padding: 7px 0;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1; /* Ensure secondary nav is above overlay */
-        }
-        .secondary-nav {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            gap: 18px;
-            padding: 0 20px;
-        }
-        .secondary-nav-link {
-            color: var(--text-medium);
-            font-size: 0.8em;
-            font-weight: 500;
-            padding: 4px 0;
-            transition: color 0.2s;
-        }
-        .secondary-nav-link:hover {
-            color: var(--accent-color);
-        }
-        .secondary-nav-dropdown::after {
-            content: '▼';
-            font-size: 0.5em;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-
-        /* Main Content Area */
-        .content-area {
-            max-width: 1300px;
-            margin: 40px auto;
-            display: flex;
-            gap: 25px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1; /* Ensure content is above overlay */
-        }
-
-        /* Left Sidebar (Filters) */
-        .sidebar {
-            width: 250px;
-            flex-shrink: 0;
-            background-color: var(--dark-bg-secondary);
-            border-radius: 8px;
-            padding: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            color: var(--text-light);
-            border: 1px solid #282828;
-        }
-
-        .sidebar-section {
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .sidebar-section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .sidebar-title {
-            font-size: 1.05em;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        .sidebar-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .sidebar-list li {
-            margin-bottom: 8px;
-        }
-        .sidebar-list a {
-            color: var(--text-medium);
-            transition: color 0.2s;
-        }
-        .sidebar-list a:hover {
-            color: var(--accent-color);
-        }
-
-        .checkbox-group label {
-            display: block;
-            margin-bottom: 7px;
-            cursor: pointer;
-            color: var(--text-medium);
-        }
-        .checkbox-group input[type="checkbox"] {
-            margin-right: 7px;
-            accent-color: var(--accent-color);
-        }
-
-        .sidebar-input {
-            width: calc(100% - 20px);
-            padding: 7px 9px;
-            border: 1px solid #444;
-            background-color: #333;
-            color: #ffffff;
-            border-radius: 4px;
-            margin-top: 5px;
-        }
-        .sidebar-input::placeholder {
-            color: var(--text-dark);
-        }
-
-        .sidebar-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 7px 14px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 12px;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        .sidebar-button:hover {
-            background-color: var(--accent-color-hover);
-            transform: translateY(-1px);
-        }
-
-        /* Main Product Grid Area */
-        .product-grid-area {
-            flex-grow: 1;
-        }
-
-        .product-grid-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .product-grid-header h2 {
-            margin: 0;
-            font-size: 1.8em;
-            color: #ffffff;
-            font-weight: 700;
-        }
-        .product-count {
-            color: var(--text-dark);
-            font-size: 0.9em;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        /* Individual Product Card */
-        .product-card {
-            background-color: var(--dark-bg-secondary);
-            border: 1px solid #282828;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-            border-color: var(--accent-color);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .product-card-content {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card-title {
-            font-size: 1.1em;
-            font-weight: 500;
-            color: #ffffff;
-            margin-bottom: 8px;
-            height: 2.8em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .product-price {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-        }
-        .product-price sup {
-            font-size: 0.6em;
-            vertical-align: super;
-        }
-        .product-price sub {
-            font-size: 0.6em;
-            vertical-align: sub;
-        }
-
-        .min-order {
-            font-size: 0.85em;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .supplier-info {
-            font-size: 0.8em;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .badges {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            background-color: #444;
-            color: #ffffff;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.75em;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        .badge.verified {
-            background-color: #007185; /* Keep this specific blue for certification badges */
-        }
-        .badge.trade-assurance {
-            background-color: #007185; /* Keep this specific blue for certification badges */
-        }
-        .badge .material-icons {
-            font-size: 14px;
-        }
-
-        .contact-supplier-button {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-top: auto;
-            transition: background-color 0.2s, transform 0.1s;
-        }
-        .contact-supplier-button:hover {
-            background-color: var(--accent-color-hover);
-            transform: translateY(-1px);
-        }
-
-        .ad-label {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0,0,0,0.7);
-            color: #ffffff;
-            font-size: 0.7em;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-
-        /* Why Choose Us Section (Moved to Bottom & Minimized for Ultra HD Look) */
-        .why-choose-us {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 25px 20px;
-            background-color: var(--dark-bg-secondary);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px var(--shadow-color-strong);
-            text-align: center;
-            border: 1px solid #282828;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        /* Subtle border glow effect */
-        .why-choose-us::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 8px;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--accent-color) 0%, transparent 50%, var(--accent-color) 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            animation: rotateGlow 8s linear infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .why-choose-us h2 {
-            font-size: 1.8em;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 0 0 8px var(--accent-color);
-            text-align: center; /* Explicitly center the title */
-        }
-        .why-features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .feature-item {
-            flex-basis: 30%;
-            min-width: 250px;
-            background-color: #1a1a1a;
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-            text-align: center;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s;
-            border: 1px solid #282828;
-        }
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.8);
-            border-color: var(--accent-color);
-        }
-        .feature-item .material-icons {
-            font-size: 40px;
-            color: var(--accent-color);
-            margin-bottom: 12px;
-            text-shadow: 0 0 15px var(--accent-color);
-        }
-        .feature-item h3 {
-            font-size: 1.2em;
-            color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .feature-item p {
-            font-size: 0.9em;
-            color: var(--text-medium);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--dark-bg-primary);
-            color: #ffffff;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 50px;
-            font-size: 0.9em;
-            border-top: 3px solid;
-            border-image: linear-gradient(to left, var(--accent-color), transparent 70%) 1;
-            box-shadow: 0 -3px 8px var(--shadow-color-strong);
-            position: relative;
-            z-index: 1; /* Ensure footer is above overlay */
-        }
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: var(--text-medium);
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Visitor Counter Section in Footer */
-        .visitor-counter-section {
-            padding: 10px 0;
-            margin-top: 15px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-medium);
-            font-size: 0.85em;
-            text-align: center;
-        }
-        .visitor-counter-section .counter-label {
-            font-weight: normal; /* Less bold for label */
-        }
-        .visitor-counter-section .counter-number {
-            font-weight: bold;
-            color: var(--accent-color);
-            font-size: 1.1em;
-            margin-left: 5px;
-        }
-        .visitor-counter-section .note {
-            display: block;
-            font-size: 0.75em;
-            color: var(--text-dark);
-            margin-top: 5px;
-        }
-
-        /* Material Icons */
+        /* Custom styles for Material Icons, as Tailwind doesn't directly support them */
         .material-icons {
             font-family: 'Material Icons';
             font-weight: normal;
@@ -669,195 +25,430 @@
             -moz-osx-font-smoothing: grayscale;
             font-feature-settings: 'liga';
         }
+
+        /* Base styles, overridden by Tailwind where applicable */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://placehold.co/1920x1080/1A1A2E/FFFFFF?text=Cosmic+Background'); /* Placeholder for cosmic background */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            z-index: 0;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
+            z-index: -1;
+        }
+
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Specific styles not easily done with Tailwind or for overrides */
+        .product-card-title {
+            height: 2.8em; /* Limit title to 2 lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .product-price sup {
+            font-size: 0.6em;
+            vertical-align: super;
+        }
+        .product-price sub {
+            font-size: 0.6em;
+            vertical-align: sub;
+        }
     </style>
 </head>
-<body>
-    <div class="top-header-wrapper">
-        <div class="top-header">
-            <div class="top-header-left">
-                <a href="#guides" class="top-header-link">Collector's Guide</a>
-                <a href="#faq" class="top-header-link">FAQ & Support</a>
-                <a href="#expertise" class="top-header-link">Our Expertise</a>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Main Title Section -->
+    <div class="relative py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg mb-8 rounded-b-xl overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="relative container mx-auto px-4 text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 animate-fade-in-down">
+                Welcome to <span class="text-yellow-300 drop-shadow-lg">Mustapha Legacy</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl font-light opacity-90 animate-fade-in-up">
+                Your Premier Source for Exquisite Meteorites
+            </p>
+        </div>
+    </div>
+
+    <!-- Top Header Section -->
+    <div class="bg-gray-800 text-gray-300 py-2 border-b border-gray-700 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm">
+            <div class="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-2 mb-2 sm:mb-0">
+                <a href="#guides" class="hover:text-blue-400 transition-colors duration-200">Collector's Guide</a>
+                <a href="#faq" class="hover:text-blue-400 transition-colors duration-200">FAQ & Support</a>
+                <a href="#expertise" class="hover:text-blue-400 transition-colors duration-200">Our Expertise</a>
             </div>
-            <div class="top-header-right">
-                <a href="#shipping" class="top-header-link">Shipping Info <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
-                <a href="#" class="top-header-link">English - USD <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></a>
-                <a href="#cart" class="top-header-link"><span class="material-icons" style="font-size: 1.2em;">shopping_cart</span></a>
-                <a href="#signin" class="top-header-link">Sign In</a>
-                <a href="#register" class="top-header-button">Create Account</a>
-                <a href="#consign" class="top-header-link">Consign Your Meteorite</a>
+            <div class="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
+                <a href="#shipping" class="hover:text-blue-400 transition-colors duration-200 flex items-center">Shipping Info <span class="material-icons text-base ml-1">arrow_drop_down</span></a>
+                <a href="#" class="hover:text-blue-400 transition-colors duration-200 flex items-center">English - USD <span class="material-icons text-base ml-1">arrow_drop_down</span></a>
+                <a href="#cart" class="hover:text-blue-400 transition-colors duration-200 flex items-center"><span class="material-icons text-lg mr-1">shopping_cart</span></a>
+                <a href="#signin" class="hover:text-blue-400 transition-colors duration-200">Sign In</a>
+                <a href="#register" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md font-semibold text-xs transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Create Account</a>
+                <a href="#consign" class="hover:text-blue-400 transition-colors duration-200">Consign Your Meteorite</a>
             </div>
         </div>
     </div>
 
-    <div class="main-header-wrapper">
-        <div class="main-header">
-            <img src="images/mrmust_logo.png" alt="MrMust Logo" class="logo-img">
+    <!-- Main Header Section (Logo, Search, Nav) -->
+    <div class="bg-gray-800 py-3 border-b-4 border-blue-500 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-4">
+            <!-- Placeholder for logo image -->
+            <img src="https://placehold.co/100x45/4F46E5/FFFFFF?text=LOGO" alt="Mustapha Legacy Logo" class="max-h-12 w-auto filter drop-shadow-lg transition-all duration-300 hover:scale-105">
             
-            <div class="nav-dropdown">Meteorite Types</div>
-            <div class="search-bar">
-                <div class="search-dropdown">All Meteorites <span class="material-icons" style="font-size: 1em;">arrow_drop_down</span></div>
-                <input type="text" class="search-input" placeholder="Search for meteorites by name or type...">
-                <button class="search-button">Search</button>
+            <div class="relative group cursor-pointer py-1 text-gray-200 font-medium text-sm md:text-base hover:text-blue-400 transition-colors duration-200">
+                Meteorite Types <span class="material-icons text-xs ml-1 align-middle">arrow_drop_down</span>
+                <!-- Dropdown content placeholder -->
+                <div class="absolute hidden group-hover:block bg-gray-700 text-gray-200 rounded-md shadow-lg py-2 z-10 min-w-[180px] mt-2">
+                    <a href="#stony" class="block px-4 py-2 hover:bg-gray-600">Stony</a>
+                    <a href="#iron" class="block px-4 py-2 hover:bg-gray-600">Iron</a>
+                    <a href="#stony-iron" class="block px-4 py-2 hover:bg-gray-600">Stony-Iron</a>
+                </div>
+            </div>
+            <div class="flex flex-grow w-full md:w-auto rounded-full overflow-hidden bg-gray-700 border border-gray-600 shadow-inner">
+                <div class="relative group cursor-pointer bg-gray-600 text-gray-200 px-3 py-2 border-r border-gray-500 text-sm md:text-base flex items-center gap-1 hover:bg-gray-500 transition-colors duration-200 rounded-l-full">
+                    All Meteorites <span class="material-icons text-xs ml-1 align-middle">arrow_drop_down</span>
+                    <!-- Dropdown content placeholder -->
+                    <div class="absolute hidden group-hover:block bg-gray-700 text-gray-200 rounded-md shadow-lg py-2 z-10 min-w-[150px] top-full left-0 mt-2">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Category 1</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Category 2</a>
+                    </div>
+                </div>
+                <input type="text" class="flex-grow px-3 py-2 bg-gray-700 text-gray-100 placeholder-gray-400 outline-none text-sm md:text-base" placeholder="Search for meteorites by name or type...">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 font-semibold text-sm md:text-base transition-all duration-200 rounded-r-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Search</button>
             </div>
         </div>
     </div>
 
-    <div class="secondary-nav-wrapper">
-        <div class="secondary-nav">
-            <a href="#categories" class="secondary-nav-link secondary-nav-dropdown">All Meteorite Categories</a>
-            <a href="#new-arrivals" class="secondary-nav-link">New Arrivals</a>
-            <a href="#featured" class="secondary-nav-link">Featured Collections</a>
-            <span style="color: var(--accent-color); font-size: 0.9em; margin-left: auto;"><span class="material-icons" style="font-size: 1em; vertical-align: middle;">verified</span> Authenticity Guaranteed by MrMustapha's Workshop.</span>
+    <!-- Secondary Navigation Bar -->
+    <div class="bg-gray-700 py-2 border-b border-gray-600 shadow-sm">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+            <div class="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2">
+                <div class="relative group cursor-pointer text-gray-300 font-medium hover:text-blue-400 transition-colors duration-200">
+                    All Meteorite Categories <span class="material-icons text-xs ml-1 align-middle">arrow_drop_down</span>
+                    <!-- Dropdown content placeholder -->
+                    <div class="absolute hidden group-hover:block bg-gray-800 text-gray-200 rounded-md shadow-lg py-2 z-10 min-w-[200px] mt-2">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Chondrites</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Achondrites</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Iron Meteorites</a>
+                    </div>
+                </div>
+                <a href="#new-arrivals" class="text-gray-300 font-medium hover:text-blue-400 transition-colors duration-200">New Arrivals</a>
+                <a href="#featured" class="text-gray-300 font-medium hover:text-blue-400 transition-colors duration-200">Featured Collections</a>
+            </div>
+            <span class="text-blue-400 text-xs sm:text-sm flex items-center mt-2 sm:mt-0">
+                <span class="material-icons text-base mr-1">verified</span> Authenticity Guaranteed by Mustapha Legacy.
+            </span>
         </div>
     </div>
 
-    <div class="content-area">
-        <div class="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-title">Meteorite Types</div>
-                <ul class="sidebar-list">
-                    <li><a href="#stony">Stony Meteorites (Chondrites & Achondrites)</a></li>
-                    <li><a href="#iron">Iron Meteorites</a></li>
-                    <li><a href="#stony-iron">Stony-Iron Meteorites (Pallasites & Mesosiderites)</a></li>
-                    <li><a href="#martian">Martian Meteorites</a></li>
-                    <li><a href="#lunar">Lunar Meteorites</a></li>
-                    <li><a href="#classified">Classified Meteorites</a></li>
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-6">
+        <!-- Left Sidebar (Filters) -->
+        <div class="lg:w-1/4 w-full bg-gray-800 rounded-lg p-6 shadow-xl border border-gray-700">
+            <div class="mb-6 pb-4 border-b border-gray-700">
+                <h3 class="text-xl font-bold text-white mb-4">Meteorite Types</h3>
+                <ul class="space-y-2">
+                    <li><a href="#stony" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Stony Meteorites (Chondrites & Achondrites)</a></li>
+                    <li><a href="#iron" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Iron Meteorites</a></li>
+                    <li><a href="#stony-iron" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Stony-Iron Meteorites (Pallasites & Mesosiderites)</a></li>
+                    <li><a href="#martian" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Martian Meteorites</a></li>
+                    <li><a href="#lunar" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Lunar Meteorites</a></li>
+                    <li><a href="#classified" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Classified Meteorites</a></li>
                 </ul>
             </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Certification & Provenance</div>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" checked> Authenticity Certificate</label>
-                    <label><input type="checkbox" checked> Scientific Classification</label>
+            <div class="mb-6 pb-4 border-b border-gray-700">
+                <h3 class="text-xl font-bold text-white mb-4">Certification & Provenance</h3>
+                <div class="space-y-2">
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" checked class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Authenticity Certificate</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" checked class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Scientific Classification</span>
+                    </label>
                 </div>
             </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Weight (grams)</div>
-                <input type="text" class="sidebar-input" placeholder="Min. weight">
-                <button class="sidebar-button">Apply</button>
+            <div class="mb-6 pb-4 border-b border-gray-700">
+                <h3 class="text-xl font-bold text-white mb-4">Weight (grams)</h3>
+                <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-gray-100 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Min. weight">
+                <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Apply</button>
             </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Find Location</div>
-                <input type="text" class="sidebar-input" placeholder="Search country/continent">
-                <div class="checkbox-group" style="margin-top: 10px;">
-                    <label><input type="checkbox"> Africa</label>
-                    <label><input type="checkbox"> Antarctica</label>
-                    <label><input type="checkbox"> Asia</label>
-                    <label><input type="checkbox"> Europe</label>
-                    <label><input type="checkbox"> North America</label>
-                    <label><input type="checkbox"> South America</label>
-                    <label><input type="checkbox"> Australia</label>
+            <div class="mb-6 pb-4 border-b border-gray-700">
+                <h3 class="text-xl font-bold text-white mb-4">Find Location</h3>
+                <input type="text" class="w-full p-2 border border-gray-600 bg-gray-700 text-gray-100 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search country/continent">
+                <div class="space-y-2 mt-4">
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Africa</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Antarctica</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Asia</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Europe</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">North America</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">South America</span>
+                    </label>
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 rounded focus:ring-blue-400 accent-blue-500">
+                        <span class="ml-2">Australia</span>
+                    </label>
                 </div>
             </div>
 
-            <div class="sidebar-section">
-                <div class="sidebar-title">Featured Collections</div>
-                <ul class="sidebar-list">
-                    <li><a href="#">Rare Finds</a></li>
-                    <li><a href="#">Newly Classified</a></li>
-                    <li><a href="#">Affordable Gems</a></li>
+            <div class="pb-4">
+                <h3 class="text-xl font-bold text-white mb-4">Featured Collections</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Rare Finds</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Newly Classified</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors duration-200">Affordable Gems</a></li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-grid-area">
-            <div class="product-grid-header">
-                <h2>Our Exquisite Meteorite Collection</h2>
-                <span class="product-count">(9 unique specimens available)</span>
+        <!-- Main Product Grid Area -->
+        <div class="lg:w-3/4 w-full">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-6 pb-4 border-b border-gray-700">
+                <h2 class="text-3xl font-bold text-white mb-2 sm:mb-0">Our Exquisite Meteorite Collection</h2>
+                <span class="text-gray-400 text-md">(9 unique specimens available)</span>
             </div>
 
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://i.imgur.com/kGRhNqe.jpeg" alt="Unique Chondrite Specimen">
-                    <div class="ad-label">Featured</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Unique Chondrite Specimen with Stunning Fusion Crust</div>
-                        <div class="product-price"><sup>$</sup>950<sup>.00</sup> - <sup>$</sup>1,200<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Sahara Desert, 2023</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/kGRhNqe.jpeg" alt="Unique Chondrite Specimen" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-red-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Featured</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Unique Chondrite Specimen with Stunning Fusion Crust</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>950<sup>.00</sup> - <sup>$</sup>1,200<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Sahara Desert, 2023</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
+                            <span class="bg-purple-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="contact-supplier-button">Inquire Now</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Unique Chondrite Specimen" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://i.imgur.com/d5MwH4k.jpeg" alt="Rare Iron Meteorite Slice">
-                    <div class="ad-label">New Arrival</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Exquisite Iron Meteorite Slice with Widmanstätten Patterns</div>
-                        <div class="product-price"><sup>$</sup>1,500<sup>.00</sup> - <sup>$</sup>2,000<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Siberia, Russia, 1947</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                <!-- Product Card 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/d5MwH4k.jpeg" alt="Rare Iron Meteorite Slice" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-yellow-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">New Arrival</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Exquisite Iron Meteorite Slice with Widmanstätten Patterns</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>1,500<sup>.00</sup> - <sup>$</sup>2,000<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Siberia, Russia, 1947</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="contact-supplier-button">Inquire Now</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Rare Iron Meteorite Slice" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://i.imgur.com/EUSWpWH.jpeg" alt="Pallasite with Olivine Crystals">
-                    <div class="ad-label">Premium</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Stunning Pallasite Meteorite with Vivid Olivine Crystals</div>
-                        <div class="product-price"><sup>$</sup>2,800<sup>.00</sup> - <sup>$</sup>3,500<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Kansas, USA, 1881</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
+                <!-- Product Card 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/EUSWpWH.jpeg" alt="Pallasite with Olivine Crystals" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Premium</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Stunning Pallasite Meteorite with Vivid Olivine Crystals</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>2,800<sup>.00</sup> - <sup>$</sup>3,500<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Kansas, USA, 1881</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
+                            <span class="bg-purple-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="contact-supplier-button">Inquire Now</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Pallasite with Olivine Crystals" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://i.imgur.com/0qww4V9.jpeg" alt="Detailed Martian Meteorite">
-                    <div class="ad-label">Rare</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Authentic Martian Meteorite Fragment - Extremely Rare</div>
-                        <div class="product-price"><sup>$</sup>3,500<sup>.00</sup> - <sup>$</sup>4,200<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Northwest Africa, 2012</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                <!-- Product Card 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/0qww4V9.jpeg" alt="Detailed Martian Meteorite" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Rare</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Authentic Martian Meteorite Fragment - Extremely Rare</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>3,500<sup>.00</sup> - <sup>$</sup>4,200<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Northwest Africa, 2012</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="contact-supplier-button">Inquire Now</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Detailed Martian Meteorite" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://i.imgur.com/bwJsZgc.jpeg" alt="Textured Stony Meteorite">
-                    <div class="ad-label">Popular</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Beautifully Textured Stony Meteorite - Entry Level</div>
-                        <div class="product-price"><sup>$</sup>700<sup>.00</sup> - <sup>$</sup>900<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Moroccan Sahara, 2020</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
-                            <span class="badge trade-assurance"><span class="material-icons" style="font-size: 14px;">security</span> Expert Appraised</span>
+                <!-- Product Card 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/bwJsZgc.jpeg" alt="Textured Stony Meteorite" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-teal-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Popular</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Beautifully Textured Stony Meteorite - Entry Level</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>700<sup>.00</sup> - <sup>$</sup>900<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Moroccan Sahara, 2020</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
+                            <span class="bg-purple-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">security</span> Expert Appraised</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="contact-supplier-button">Inquire Now</a>
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Textured Stony Meteorite" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://i.imgur.com/MjVkzRZ.jpeg" alt="Glossy Fusion Crust Meteorite">
-                    <div class="ad-label">Collector's Item</div>
-                    <div class="product-card-content">
-                        <div class="product-card-title">Meteorite with Impeccable Glossy Fusion Crust</div>
-                        <div class="product-price"><sup>$</sup>1,100<sup>.00</sup> - <sup>$</sup>1,500<sup>.00</sup></div>
-                        <div class="min-order">Min. order: 1 piece</div>
-                        <div class="supplier-info">Found: Atacama Desert, Chile, 1998</div>
-                        <div class="badges">
-                            <span class="badge verified"><span class="material-icons" style="font-size: 14px;">check_circle</span> Certified Authentic</span>
+                <!-- Product Card 6 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-blue-500 relative">
+                    <img src="https://i.imgur.com/MjVkzRZ.jpeg" alt="Glossy Fusion Crust Meteorite" class="w-full h-48 object-cover border-b border-gray-700">
+                    <div class="absolute top-3 right-3 bg-orange-600 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">Collector's Item</div>
+                    <div class="p-4 flex flex-col h-full">
+                        <h3 class="text-lg font-semibold text-white mb-2 product-card-title">Meteorite with Impeccable Glossy Fusion Crust</h3>
+                        <div class="text-xl font-bold text-blue-400 mb-2"><sup>$</sup>1,100<sup>.00</sup> - <sup>$</sup>1,500<sup>.00</sup></div>
+                        <p class="text-gray-400 text-sm mb-1">Min. order: 1 piece</p>
+                        <p class="text-gray-400 text-sm mb-3">Found: Atacama Desert, Chile, 1998</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-700 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1"><span class="material-icons text-sm">check_circle</span> Certified Authentic</span>
                         </div>
-                        <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust
+                        <a href="mailto:your_email@example.com?subject=Inquiry about Glossy Fusion Crust" class="mt-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md text-center transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="container mx-auto px-4 py-12 my-8 bg-gray-800 rounded-lg shadow-2xl border border-gray-700 relative overflow-hidden">
+        <div class="absolute inset-0 rounded-lg opacity-20" style="background: linear-gradient(45deg, rgba(59, 130, 246, 0.3) 0%, transparent 50%, rgba(139, 92, 246, 0.3) 100%); animation: rotateGlow 8s linear infinite;"></div>
+        <div class="relative z-10 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-blue-400 mb-8 drop-shadow-lg">Why Choose Mustapha Legacy?</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="w-full sm:w-1/2 lg:w-1/4 bg-gray-700 p-6 rounded-lg shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <span class="material-icons text-5xl text-blue-400 mb-4 drop-shadow-md">verified_user</span>
+                    <h3 class="text-xl font-semibold text-white mb-2">Guaranteed Authenticity</h3>
+                    <p class="text-gray-300 text-sm">Every meteorite is scientifically classified and comes with a certificate.</p>
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 bg-gray-700 p-6 rounded-lg shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <span class="material-icons text-5xl text-blue-400 mb-4 drop-shadow-md">star_half</span>
+                    <h3 class="text-xl font-semibold text-white mb-2">Expert Appraisals</h3>
+                    <p class="text-gray-300 text-sm">Our team of specialists ensures fair and accurate valuations.</p>
+                </div>
+                <div class="w-full sm:w-1/2 lg:w-1/4 bg-gray-700 p-6 rounded-lg shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <span class="material-icons text-5xl text-blue-400 mb-4 drop-shadow-md">local_shipping</span>
+                    <h3 class="text-xl font-semibold text-white mb-2">Secure & Insured Shipping</h3>
+                    <p class="text-gray-300 text-sm">Your precious specimens are delivered safely worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-sm border-t-4 border-blue-500 shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-6">
+                <li><a href="#" class="hover:text-blue-400 transition-colors duration-200">About Us</a></li>
+                <li><a href="#" class="hover:text-blue-400 transition-colors duration-200">Contact</a></li>
+                <li><a href="#" class="hover:text-blue-400 transition-colors duration-200">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-blue-400 transition-colors duration-200">Terms of Service</a></li>
+                <li><a href="#" class="hover:text-blue-400 transition-colors duration-200">Sitemap</a></li>
+            </ul>
+            <p class="mb-4">&copy; 2023 Mustapha Legacy. All rights reserved.</p>
+
+            <!-- Visitor Counter Section -->
+            <div class="pt-4 border-t border-gray-700 text-gray-400">
+                <p class="flex items-center justify-center">
+                    <span class="material-icons text-lg mr-2">group</span>
+                    <span class="counter-label">Total Visitors:</span>
+                    <span class="counter-number text-blue-400 text-lg font-bold ml-1">123,456</span>
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                    Join our growing community of meteorite enthusiasts!
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Keyframe animations */
+        @keyframes fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .animate-fade-in-down {
+            animation: fade-in-down 1s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards 0.5s; /* Delay for a staggered effect */
+        }
+    </style>
+</body>
+</html>
